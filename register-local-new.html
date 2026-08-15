@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Registration - Basic Information - DUA Forum 2025</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Register as a Local Participant for the DUA Forum 2025.">
+    <meta name="keywords" content="Democrat Union of Africa, DUA Forum 2025, Africa politics, political conference, register DUA forum, local participant">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://democratunionofafrica.org/register.html">
+    <meta property="og:title" content="DUA Forum 2025 Registration">
+    <meta property="og:description" content="Register as a Local Participant for the DUA Forum 2025.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1a212c/ffffff?text=DUA+Forum+2025">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://democratunionofafrica.org/register.html">
+    <meta property="twitter:title" content="DUA Forum 2025 Registration">
+    <meta property="twitter:description" content="Register as a Local Participant for the DUA Forum 2025.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/1a212c/ffffff?text=DUA+Forum+2025">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS - For single-file use -->
+    <style>
+        :root {
+            --primary-color: #4682B4; /* Sea Blue */
+            --dark-bg: #1a212c;
+            --medium-bg: #232b38;
+            --light-text: #a0a3a8;
+            --heading-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand, .section-title {
+            font-family: 'Geologica', sans-serif;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        /* --- Top Bar --- */
+        .top-bar {
+            background-color: var(--dark-bg);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        .top-bar .contact-info a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .top-bar .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        .top-bar .social-icons a {
+            color: var(--light-text);
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+        .top-bar .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            transition: background-color 0.4s ease-in-out, padding 0.4s ease;
+            padding: 1.5rem 0;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--medium-bg);
+            padding: 0.75rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 2rem;
+        }
+        .navbar-brand .highlight {
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            color: var(--heading-color) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0.5rem;
+            right: 0.5rem;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .navbar-toggler {
+            border-color: rgba(70, 130, 180, 0.5);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(70, 130, 180, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .btn {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--heading-color);
+            box-shadow: 0 4px 15px rgba(70, 130, 180, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--heading-color);
+            border-color: var(--heading-color);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(70, 130, 180, 0.3);
+        }
+
+        /* --- Hero Section --- */
+        #heroCarousel .carousel-item {
+            height: 100vh;
+            min-height: 700px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #heroCarousel .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: auto;
+            text-align: left;
+        }
+
+        #heroCarousel .carousel-caption h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            animation: slideInUp 1s ease-out;
+        }
+
+        #heroCarousel .carousel-caption p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            animation: slideInUp 1s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Section Styles --- */
+        section {
+            padding: 80px 0;
+            position: relative;
+            overflow-x: clip;
+        }
+
+        .section-title-container {
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+        }
+
+        /* --- Who We Are Section --- */
+        .who-we-are-section {
+            background-color: var(--light-bg);
+        }
+        .who-we-are-section .section-title, .who-we-are-section .section-subtitle, .who-we-are-section p {
+            color: var(--dark-bg);
+        }
+        .who-we-are-section .title-break {
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        .info-card {
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card img {
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+        .info-card h4 {
+            color: var(--dark-bg);
+            font-weight: 900;
+        }
+        .info-card p {
+            color: #555;
+        }
+        .info-card .info-break {
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        .info-card::after {
+            content: attr(data-number);
+            position: absolute;
+            bottom: -50px;
+            right: 0;
+            font-size: 12rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.05);
+            z-index: 1;
+            line-height: 1;
+        }
+        .info-card .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- DUA Forum Section --- */
+        .dua-forum-section {
+            background-image: linear-gradient(rgba(26, 33, 44, 0.7), rgba(26, 33, 44, 0.7)), url('images/finalww.gif');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0;
+        }
+
+        /* --- Meet Leader Section --- */
+        .meet-leader-section {
+            background-image: linear-gradient(rgba(26, 33, 44, 0.8), rgba(26, 33, 44, 0.8)), url('images/new if.gif');
+            background-size: cover;
+            background-position: center;
+        }
+        .meet-leader-section .img-container {
+            position: relative;
+        }
+        .meet-leader-section .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: #c12627;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .meet-leader-section .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .meet-leader-section .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Next Event Section --- */
+        .next-event-section {
+            background-color: #11151d;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 0l-4.9 10.5L0 12l8.5 7.3L6.2 30 20 24l13.8 6-2.3-10.7L40 12l-15.1-1.5L20 0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .event-tabs .nav-link {
+            background: none;
+            border: none;
+            color: var(--light-text) !important;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .event-tabs .nav-link.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--heading-color) !important;
+        }
+        .event-row {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+        .event-row:last-child {
+            border-bottom: none;
+        }
+        .event-row .arrow-link {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* --- News Section --- */
+        .news-section {
+            background-color: var(--light-bg);
+        }
+        .news-section .section-title, .news-section p {
+            color: var(--dark-bg);
+        }
+        .news-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .news-card .card-body {
+            padding: 1.5rem;
+        }
+        .news-card .card-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .news-card .card-title {
+            color: var(--dark-bg);
+            font-size: 1.25rem;
+        }
+        .news-card .card-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            position: relative;
+            padding: 10rem 0;
+            background-image: url('images/DUA-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 33, 44, 0.6);
+        }
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        .cta-content h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+        }
+
+        /* --- Registration Section --- */
+        .registration-section {
+            padding: 100px 0;
+        }
+        .registration-form-container {
+            background-color: var(--medium-bg);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+        .registration-form-container .form-label {
+            color: var(--light-text);
+        }
+        .registration-form-container .form-control {
+            background-color: var(--dark-bg);
+            border-color: var(--border-color);
+            color: var(--heading-color);
+        }
+        .registration-form-container .form-control:focus {
+            background-color: var(--dark-bg);
+            border-color: var(--primary-color);
+            color: var(--heading-color);
+            box-shadow: 0 0 0 0.25rem rgba(70, 130, 180, 0.25);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--medium-bg);
+            padding-top: 5rem;
+        }
+        .footer-bottom {
+            background-color: var(--dark-bg);
+            padding: 1.5rem 0;
+            margin-top: 4rem;
+        }
+        .footer h5 {
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+        .footer .list-unstyled li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* --- Animation & Utility Classes --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Optimizations --- */
+        @media (max-width: 992px) {
+            .history-item::before {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            /* Hero Section */
+            #heroCarousel .carousel-caption h1 {
+                font-size: 3rem;
+            }
+            #heroCarousel .carousel-caption p {
+                font-size: 1rem;
+            }
+            #heroCarousel .carousel-item {
+                height: 80vh;
+                min-height: 500px;
+            }
+
+            /* General Typography */
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .service-card .card-main-title {
+                font-size: 2rem;
+            }
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            .info-card h4 {
+                font-size: 1.25rem;
+            }
+
+            /* Spacing */
+            section {
+                padding: 60px 0;
+            }
+
+            /* Decorative Elements */
+            .info-card::after {
+                font-size: 8rem;
+                bottom: -30px;
+            }
+            .wave-decorator {
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+            .registration-form-container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* --- Members Section --- */
+        .members-section {
+            background-color: var(--dark-bg);
+        }
+        .member-card {
+            background-color: var(--medium-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .member-card:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        .member-card .country-flag {
+            width: 80px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 1.5rem;
+        }
+        .member-card .party-info {
+            flex-grow: 1;
+        }
+        .member-card .party-info h5 {
+            margin-bottom: 0.25rem;
+        }
+        .member-card .arrow-link {
+            font-size: 1.5rem;
+            color: var(--light-text);
+            transition: transform 0.3s ease;
+        }
+        .member-card:hover .arrow-link {
+            transform: translateX(5px);
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 6rem 0;
+            text-align: center;
+            background-color: var(--medium-bg);
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+        }
+
+        /* --- Leadership Section --- */
+        .leadership-section {
+            background-color: var(--light-bg);
+        }
+        .leader-card {
+            background-color: var(--light-bg);
+            border-radius: 1rem;
+            text-align: left;
+            padding: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .leader-img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+        .leader-info {
+            padding: 0 0.5rem;
+        }
+        .leader-name {
+            color: var(--dark-bg);
+            margin-bottom: 0.25rem;
+        }
+        .leader-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .leader-affiliation {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 6rem 0;
+            text-align: center;
+            background-color: var(--medium-bg);
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+        }
+
+        /* --- Media Archive Section --- */
+        .media-archive-section {
+            background-color: var(--dark-bg);
+        }
+        .media-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+        .media-item:hover {
+            background-color: var(--medium-bg);
+        }
+        .media-meta {
+            flex: 0 0 200px;
+        }
+        .media-category {
+            background-color: var(--primary-color);
+            color: var(--heading-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .media-meta .date {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        .media-content {
+            flex: 1;
+        }
+        .media-content a {
+            color: var(--heading-color);
+            font-family: 'Geologica', sans-serif;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .media-content a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Mobile Optimizations for Media Page --- */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .media-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .media-meta {
+                margin-bottom: 1rem;
+            }
+            .media-content a {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 6rem 0;
+            text-align: center;
+            background-color: var(--medium-bg);
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact-section {
+            background-color: var(--dark-bg);
+        }
+        .contact-form-container {
+            background-color: var(--medium-bg);
+            padding: 3rem;
+            border-radius: 1rem;
+        }
+        .contact-form-container .form-label {
+            color: var(--light-text);
+        }
+        .contact-form-container .form-control {
+            background-color: var(--dark-bg);
+            border-color: var(--border-color);
+            color: var(--heading-color);
+            padding: 0.75rem 1rem;
+        }
+        .contact-form-container .form-control:focus {
+            background-color: var(--dark-bg);
+            border-color: var(--primary-color);
+            color: var(--heading-color);
+            box-shadow: 0 0 0 0.25rem rgba(70, 130, 180, 0.25);
+        }
+        .contact-details .icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        .contact-details h5 {
+            color: var(--heading-color);
+        }
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        /* --- Mobile Optimizations for Contact Page --- */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .contact-form-container {
+                padding: 2rem;
+            }
+        }
+
+        /* --- Single Post Page --- */
+        .post-header {
+            padding: 6rem 0;
+            background-color: var(--medium-bg);
+        }
+        .post-title {
+            font-size: 3.5rem;
+        }
+        .post-meta {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .featured-image-container {
+            margin-top: -80px;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .post-content {
+            background-color: var(--light-bg);
+            color: #333;
+            padding-top: 0; /* Adjust padding as it's part of the article */
+        }
+        .post-content h3 {
+            color: var(--dark-bg);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .comment-section {
+            background-color: var(--light-bg);
+            padding-top: 4rem;
+        }
+        .comment-section h3 {
+            color: var(--dark-bg);
+        }
+        .comment-section .form-label {
+            color: #555;
+        }
+        .comment-section .form-control {
+            background-color: #fff;
+            border-color: #ddd;
+            color: #333;
+        }
+        .comment-section .form-control:focus {
+            background-color: #fff;
+            border-color: var(--primary-color);
+            color: #333;
+        }
+        .comment-section .form-check-label {
+            color: #555;
+        }
+
+        /* --- Mobile Optimizations for Single Post Page --- */
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2.5rem;
+            }
+            .post-header {
+                padding: 4rem 0;
+            }
+            .featured-image-container {
+                margin-top: -60px;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 6rem 0;
+            text-align: center;
+            background-color: var(--medium-bg);
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+        }
+
+        /* --- About/History Section --- */
+        .about-history-section {
+            background-color: var(--light-bg);
+        }
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--primary-color);
+            margin-left: 5rem; /* Creates space for the year */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2.5rem; /* Space between line and content */
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-year {
+            position: absolute;
+            left: -6rem; /* Positions the year to the left of the timeline */
+            top: 0;
+            width: 5rem;
+            text-align: right;
+            font-family: 'Geologica', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        .timeline-content h3 {
+            color: var(--dark-bg);
+        }
+        .timeline-content p {
+            color: #555;
+        }
+
+        /* --- Mobile Optimizations for About Page --- */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .timeline {
+                border-left: none;
+                margin-left: 0;
+            }
+            .timeline-item {
+                padding-left: 0;
+            }
+            .timeline-year {
+                position: static;
+                margin-bottom: 1rem;
+                font-size: 1.25rem;
+                text-align: left;
+            }
+        }
+
+        /* --- WhatsApp Plugin --- */
+        .whatsapp-plugin {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .whatsapp-plugin:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .news-card-link {
+            text-decoration: none;
+        }
+
+        /* Optional: Add a hover effect for better user feedback */
+        .news-card-link:hover .news-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            padding: 0.8rem 1.8rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--heading-color);
+        }
+        .btn-submit:hover {
+            background-color: var(--heading-color);
+            border-color: var(--heading-color);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(70, 130, 180, 0.3);
+        }
+
+        /* Registration Form Section */
+        .registration-form-section {
+            padding: 50px 0;
+            background-color: var(--dark-bg);
+        }
+        .registration-form-container {
+            background-color: var(--medium-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .registration-form-container h2 {
+            color: var(--heading-color);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .registration-form-container .form-label {
+            color: var(--light-text);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .registration-form-container .form-control,
+        .registration-form-container .form-select {
+            background-color: var(--dark-bg);
+            border-color: var(--border-color);
+            color: var(--light-text);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .registration-form-container .form-control:focus,
+        .registration-form-container .form-select:focus {
+            background-color: var(--dark-bg);
+            border-color: var(--primary-color);
+            color: var(--heading-color);
+            box-shadow: 0 0 0 0.25rem rgba(70, 130, 180, 0.25);
+        }
+        .registration-form-container .form-check-label {
+            color: var(--light-text);
+        }
+        .registration-form-container .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Styles for the confirmation message and error message */
+        .confirmation-message, .error-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            border-radius: 15px;
+            background-color: var(--medium-bg);
+        }
+        .confirmation-message h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .confirmation-message p {
+            font-size: 1.25rem;
+        }
+        .error-message h3 {
+            color: #dc3545; /* Red for errors */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-top">
+        <!-- Top Bar -->
+        <div class="top-bar d-none d-lg-block">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <a href="mailto:info@democratunionofafrica.org" class="me-3"><i class="bi bi-envelope-fill me-1"></i> info@democratunionofafrica.org</a>
+                    <a href="tel:+233241967709"><i class="bi bi-telephone-fill me-1"></i> +233 24 196 7709 (Accra)</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://x.com/dua_africa"><i class="bi bi-twitter"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=100069232508908"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/democracyunionofafrica/"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="DUA Logo" style="height: 60px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+                        <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="register.html">DUA Forum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content - Registration Form -->
+    <main>
+        <section class="registration-form-section">
+            <div class="container">
+                <div id="registrationFormContainer" class="registration-form-container">
+                    <h2 class="text-center text-white mb-4">Local Registration - DUA Forum 2025</h2>
+                    <form id="registrationForm">
+                        <input type="hidden" name="_subject" value="DUA Forum 2025 Registration">
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Title*</label>
+                            <div class="d-flex flex-wrap">
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="Title" id="titleMr" value="Mr." required>
+                                    <label class="form-check-label" for="titleMr">Mr.</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="Title" id="titleMrs" value="Mrs.">
+                                    <label class="form-check-label" for="titleMrs">Mrs.</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="Title" id="titleMiss" value="Miss.">
+                                    <label class="form-check-label" for="titleMiss">Miss.</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input class="form-check-input" type="radio" name="Title" id="titleDr" value="Dr.">
+                                    <label class="form-check-label" for="titleDr">Dr.</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Title" id="titleProf" value="Prof.">
+                                    <label class="form-check-label" for="titleProf">Prof.</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name*</label>
+                            <input type="text" name="First Name" class="form-control" id="firstName" placeholder="First Name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name*</label>
+                            <input type="text" name="Last Name" class="form-control" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">Email Address*</label>
+                            <input type="email" name="Email Address" class="form-control" id="emailAddress" placeholder="E-mail id" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mobileNumber" class="form-label">Mobile Number (+254) *</label>
+                            <input type="tel" name="Mobile Number" class="form-control" id="mobileNumber" placeholder="e.g., 722123456" pattern="[0-9]{9}" required>
+                            <small class="form-text text-muted">Format: 722123456 (excluding country code)</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender*</label>
+                            <select name="Gender" class="form-select" id="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country*</label>
+                            <select name="Country" class="form-select" id="country" required>
+                                <option value="Kenya" selected>Kenya</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="organisation" class="form-label">Organisation:</label>
+                            <input type="text" name="Organisation" class="form-control" id="organisation" placeholder="Organisation">
+                        </div>
+                        <div class="mb-4">
+                            <label for="position" class="form-label">Position:</label>
+                            <input type="text" name="Position" class="form-control" id="position" placeholder="Position">
+                        </div>
+
+                        
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </form>
+                </div>
+                
+                <div id="confirmationMessage" class="confirmation-message">
+                    <h3 class="text-white">Registration Successful!</h3>
+                    <p class="text-white">Thank you for registering for the DUA Forum 2025. We have received your information and look forward to seeing you there.</p>
+                </div>
+
+                <div id="errorMessage" class="error-message">
+                    <h3 class="text-danger">Submission Failed</h3>
+                    <p class="text-white">There was an error submitting the form. Please check your connection and try again.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="DUA Logo" style="height: 40px;">
+                    </a>
+                    <p>The Democracy Union of Africa is an alliance of centre-right political parties in Africa, affiliated with the International Democrat Union.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Get Involved</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Become a Member</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact & Subscribe</h5>
+                    <p>Stay informed about the DUA's activities and statements.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" style="background-color: var(--dark-bg); border-color: var(--border-color); color: var(--light-text);">
+                            <button class="btn btn-primary" type="button" style="padding: 0.5rem 1rem;"><i class="bi bi-send"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2025 Democrat Union of Africa. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Plugin -->
+    <a href="https://wa.me/233241967709" class="whatsapp-plugin" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            const registrationForm = document.getElementById('registrationForm');
+            const formContainer = document.getElementById('registrationFormContainer');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // --- Navbar Style on Scroll ---
+            const handleNavbarScroll = () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            };
+
+            // --- Animate on Scroll (Fade-in & Counters) ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+
+                        // Handle counters
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            if (counter.dataset.animated) return;
+                            counter.dataset.animated = 'true';
+
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // Animate over 2 seconds
+
+                            let start = 0;
+                            const step = (timestamp) => {
+                                if (!start) start = timestamp;
+                                const progress = Math.min((timestamp - start) / duration, 1);
+                                counter.innerText = Math.floor(progress * target).toLocaleString();
+                                if (progress < 1) {
+                                    window.requestAnimationFrame(step);
+                                } else {
+                                    counter.innerText = target.toLocaleString();
+                                }
+                            };
+                            window.requestAnimationFrame(step);
+                        });
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Event Listeners ---
+            window.addEventListener('scroll', handleNavbarScroll);
+            handleNavbarScroll(); // Initial check
+            
+            // Get the Bootstrap Collapse element and the toggler button
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            // Add a scroll event listener to the window
+            window.addEventListener('scroll', () => {
+                // Check if the navbar is currently expanded (open)
+                if (navbarCollapse.classList.contains('show')) {
+                    // If the user has scrolled and the navbar is open, click the toggler to close it.
+                    // The getBoundingClientRect().top check is a simple way to see if we've scrolled past the top.
+                    if (window.scrollY > 50) {
+                        navbarToggler.click();
+                    }
+                }
+            });
+
+            // --- Form Submission Handler ---
+            registrationForm.addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+
+                // Hide any previous messages
+                confirmationMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                try {
+                    const response = await fetch('https://formsubmit.co/ajax/info@democratunionofafrica.org', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        formContainer.style.display = 'none';
+                        confirmationMessage.style.display = 'block';
+                    } else {
+                        // Handle server-side errors
+                        console.error('Submission failed with status:', response.status);
+                        errorMessage.style.display = 'block';
+                    }
+                } catch (error) {
+                    // Handle network or other errors
+                    console.error('An error occurred:', error);
+                    errorMessage.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

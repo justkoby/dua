@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Participant Type - DUA Forum 2025</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Select your participant type (Local or International) for the DUA Forum 2025 registration in Accra, Ghana.">
+    <meta name="keywords" content="Democrat Union of Africa, DUA Forum 2025, Africa politics, centre-right parties, political conference Africa, Accra Ghana event, register DUA forum, Democracy Union of Africa, local participant, international participant">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dua.com/select-participant.html">
+    <meta property="og:title" content="Select Participant Type | DUA Forum 2025 | Democrat Union of Africa">
+    <meta property="og:description" content="Choose between Local and International participant registration for the DUA Forum 2025 in Accra, Ghana.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1a212c/ffffff?text=DUA+Forum+2025">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.dua.com/select-participant.html">
+    <meta property="twitter:title" content="Select Participant Type | DUA Forum 2025 | Democrat Union of Africa">
+    <meta property="twitter:description" content="Choose between Local and International participant registration for the DUA Forum 2025 in Accra, Ghana.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/1a212c/ffffff?text=DUA+Forum+2025">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS - Linked to external style.css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <style>
+        /* Specific styles for the participant selection section to override/enhance base styles */
+        .participant-selection-section {
+            padding: 80px 0;
+            background-color: var(--dark-bg); /* Ensure dark background */
+        }
+
+        .selection-container {
+            background-color: var(--medium-bg); /* Use medium-bg from custom CSS */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .selection-card {
+            background-color: var(--dark-bg); /* Card background */
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 250px; /* Fixed height for better alignment */
+            margin: 15px; /* Spacing between cards */
+            text-decoration: none; /* Remove underline from link */
+            color: var(--light-text); /* Text color for the card */
+            flex: 1; /* Allow cards to grow and shrink */
+            max-width: 350px; /* Max width for cards on larger screens */
+        }
+
+        .selection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+            background-color: var(--medium-bg); /* Slightly lighter on hover */
+        }
+
+        .selection-card .card-icon {
+            font-size: 4rem; /* Large icon size */
+            color: var(--primary-color); /* Primary color for icon */
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .selection-card:hover .card-icon {
+            color: var(--heading-color); /* Icon color change on hover */
+        }
+
+        .selection-card .card-text {
+            font-family: 'Geologica', sans-serif;
+            font-size: 1.5rem; /* Larger text for the option */
+            font-weight: 700;
+            color: var(--heading-color); /* Use heading color */
+            transition: color 0.3s ease;
+        }
+
+        .selection-card:hover .card-text {
+            color: var(--light-text); /* Text color change on hover */
+        }
+
+        .selection-info {
+            color: var(--light-text); /* Use light-text for info */
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+
+        .selection-title {
+            color: var(--heading-color); /* Use heading color */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .selection-subtitle {
+            color: var(--primary-color); /* Use primary color for subtitle */
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .selection-card {
+                height: auto; /* Allow height to adjust on smaller screens */
+                min-height: 200px;
+                margin: 10px 0; /* Adjust margin for vertical stack */
+                width: 100%; /* Full width on small screens */
+                max-width: unset; /* Remove max-width restriction */
+            }
+            .selection-title {
+                font-size: 2rem;
+            }
+            .selection-subtitle {
+                font-size: 1rem;
+            }
+            .participant-selection-section {
+                padding: 50px 0;
+            }
+            .selection-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-top">
+        <!-- Top Bar -->
+        <div class="top-bar d-none d-lg-block">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <a href="mailto:info@democratunionofafrica.org" class="me-3"><i class="bi bi-envelope-fill me-1"></i> info@democratunionofafrica.org</a>
+                    <a href="tel:+233241967709"><i class="bi bi-telephone-fill me-1"></i> +233 24 196 7709 (Accra)</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://x.com/dua_africa"><i class="bi bi-twitter"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=100069232508908"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/democracyunionofafrica/"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="DUA Logo" style="height: 60px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+                        <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="register.html">DUA Forum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content - Participant Selection -->
+    <main>
+        <section class="participant-selection-section d-flex align-items-center justify-content-center">
+            <div class="container">
+                <div class="selection-container">
+                    <div class="text-center mb-5">
+                        <h2 class="section-subtitle">ANNUAL CONFERENCE</h2>
+                        <h1 class="selection-title">REGISTER NOW</h1>
+                        <p class="selection-subtitle">KINDLY SELECT THE BELOW AS APPROPRIATE</p>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                        <!-- International Participant Card -->
+                        <a href="register-international.html" class="selection-card">
+                            <i class="bi bi-person-bounding-box card-icon"></i> <!-- Using person-bounding-box as it resembles person with star -->
+                            <span class="card-text">INTERNATIONAL PARTICIPANT</span>
+                        </a>
+
+                        <!-- Local Participant Card -->
+                        <a href="register-local-new.html" class="selection-card">
+                            <i class="bi bi-person-fill-check card-icon"></i> <!-- Using person-fill-check as another option -->
+                            <span class="card-text">LOCAL PARTICIPANT</span>
+                        </a>
+                    </div>
+
+                    <p class="text-center selection-info mt-4">
+                        Please choose your participant type to proceed with the registration form.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="DUA Logo" style="height: 40px;">
+                </a>
+                    <p>The Democracy Union of Africa is an alliance of centre-right political parties in Africa, affiliated with the International Democrat Union.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Get Involved</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Become a Member</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact & Subscribe</h5>
+                    <p>Stay informed about the DUA's activities and statements.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" style="background-color: var(--dark-bg); border-color: var(--border-color); color: var(--light-text);">
+                            <button class="btn btn-primary" type="button" style="padding: 0.5rem 1rem;"><i class="bi bi-send"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2025 Democrat Union of Africa. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Plugin -->
+    <a href="https://wa.me/233241967709" class="whatsapp-plugin" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
