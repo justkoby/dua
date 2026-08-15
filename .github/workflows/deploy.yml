@@ -26,13 +26,13 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy via FTP to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy via SFTP/FTP to Hostinger
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          security: loose
-          server-dir: /public_html/
-          local-dir: ./dua-app/dist/
+          port: 21
+          local_path: './dua-app/dist/*'
+          remote_path: '/public_html/'
+          sftp_only: false
