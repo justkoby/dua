@@ -112,6 +112,14 @@ const galleryPhotos = [
       'Chairperson Louisa Atta-Agyemang summarizing conference resolutions and presenting the forward action plan for member parties.',
     aspect: 'portrait',
   },
+  {
+    id: 13,
+    src: '/images/events/dua-womens-conference-2026/tina-mercep-woman-of-courage-award.png',
+    title: 'Woman of Courage Award 2026 Conferred on IDU SG Tina Mercep',
+    caption:
+      'DUA Chairperson Louisa Atta-Agyemang presents the 2026 Woman of Courage Award to Tina Mercep, Secretary General of the International Democracy Union (IDU), under the theme “Together for Peace and Prosperity”.',
+    aspect: 'wide',
+  },
 ];
 
 const speakers = [
@@ -368,13 +376,39 @@ export default function WomensConferencePage() {
         </div>
       </section>
 
-      {/* Woman of Courage Award Feature */}
+      {/* Woman of Courage Award Feature & Recognition */}
       <section className="wc-award-section container">
         <div className="wc-award-box">
           <div className="wc-award-copy">
             <div className="wc-award-tag">
               <Award size={18} aria-hidden="true" />
               <span>DUA WOMAN OF COURAGE AWARD 2026</span>
+            </div>
+            <h2>Honouring IDU Secretary General Tina Mercep</h2>
+            <p className="lead">
+              Presented in Windhoek, Namibia, celebrating global partnership in advancing women’s leadership and democratic values across Africa.
+            </p>
+            <p>
+              DUA Chairperson Md Louisa Atta-Agyemang officially conferred the 2026 Woman of Courage Award on Tina Mercep, Secretary General of the International Democracy Union (IDU), under the conference theme “Together for Peace and Prosperity”. The IDU commended DUA for the recognition and its steadfast dedication to democratic institution-building.
+            </p>
+            <blockquote style={{ borderLeft: '3px solid var(--sea-blue)', paddingLeft: '16px', margin: '18px 0 0', fontStyle: 'italic', color: '#cbd5e1', fontSize: '14px' }}>
+              “We thank our friends at the Democracy Union of Africa for this recognition and for their continued partnership in advancing women’s leadership and democratic values across the continent.” — International Democracy Union &amp; KAS
+            </blockquote>
+          </div>
+          <div className="wc-award-visual">
+            <img
+              src="/images/events/dua-womens-conference-2026/tina-mercep-woman-of-courage-award.png"
+              alt="DUA Chairperson Louisa Atta-Agyemang presents the 2026 Woman of Courage Award to IDU Secretary General Tina Mercep"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div className="wc-award-box" style={{ marginTop: '30px' }}>
+          <div className="wc-award-copy">
+            <div className="wc-award-tag">
+              <Award size={18} aria-hidden="true" />
+              <span>LIFETIME LEADERSHIP HONOUR</span>
             </div>
             <h2>Conferred on H.E. Ellen Johnson Sirleaf</h2>
             <p className="lead">

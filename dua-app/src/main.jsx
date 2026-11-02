@@ -17,6 +17,7 @@ import { getStory } from './activities.js';
 import SiteHeader, { Brand } from './SiteHeader.jsx';
 import InnerPages from './pages/InnerPages.jsx';
 import OpportunitiesSection from './OpportunitySections.jsx';
+import DuaInMotion from './components/DuaInMotion.jsx';
 import { events } from './pages/events-content.js';
 import { getOpportunityPathway } from './pages/opportunities-content.js';
 import PartnerStrip from './PartnerStrip.jsx';
@@ -226,6 +227,8 @@ function App() {
             ? 'Pathways & Network'
             : currentPage.type === 'opportunity'
             ? getOpportunityPathway(currentPage.id)?.title ?? 'Pathways'
+            : currentPage.type === 'ydua'
+            ? 'Young Democrat Union of Africa (YDUA)'
             : currentPage.type === 'news-article'
             ? 'Official Statement'
             : currentPage.type === 'commentary'
@@ -249,6 +252,10 @@ function App() {
       : currentStory
       ? `${currentStory.title} — Democracy Union of Africa (DUA)`
       : 'Democracy Union of Africa (DUA) — Advancing Democracy, Freedom and Prosperity Across Africa';
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.href = `https://democratunionofafrica.org${window.location.pathname}`;
+    }
   }, [currentPage, currentStory]);
 
   const [scrolled, setScrolled] = useState(() => window.scrollY > 32);
@@ -410,38 +417,13 @@ function App() {
               {/* 04 Latest News & Statements */}
               <LatestNewsAndStatements />
 
-              {/* 05 Continental Network & Member Parties */}
-              <ActivitySection content={c.activity} />
-
-              {/* 06 Leadership & Strategic Priorities */}
+              {/* 05 Leadership */}
               <PeopleSection content={c.people} />
 
-              <section className="focus-section section-pad" id="focus">
-                <div className="container">
-                  <div className="section-heading">
-                    <div>
-                      <p className="eyebrow">OUR STRATEGIC PRIORITIES</p>
-                      <h2>
-                        Six strategic pillars.
-                        <br />
-                        One democratic union.
-                      </h2>
-                    </div>
-                    <p>
-                      From constitutionalism and electoral integrity
-                      <br className="desktop-break" /> to free enterprise and youth empowerment.
-                    </p>
-                  </div>
-                  <div>
-                    <a className="button gold" href="/who-we-are/#priorities">
-                      Explore Our Priorities <ArrowUpRight size={18} />
-                    </a>
-                  </div>
-                </div>
-              </section>
+              {/* 06 DUA in Motion (Instagram Reels) */}
+              <DuaInMotion />
 
-              {/* 07 Events & Media Highlights */}
-              <OpportunitiesSection content={c.opportunities} />
+              {/* 07 Global Network & Strategic Allies */}
               <PartnerStrip content={c.partners} />
 
               <section className="connect section-pad" id="connect">

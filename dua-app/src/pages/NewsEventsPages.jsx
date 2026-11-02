@@ -13,6 +13,8 @@ import { events as staticEvents } from './events-content.js';
 import { displayDate, eventState, listEvents } from './news-events-model.js';
 import { usePublishedEvents, useEvent } from './use-published.js';
 import WomensConferencePage from './WomensConferencePage.jsx';
+import JohannesburgForumPage from './JohannesburgForumPage.jsx';
+import YduaPage from './YduaPage.jsx';
 import './news-events.css';
 
 export function Header({ page, title, description }) {
@@ -242,6 +244,12 @@ export function EventsPage() {
 export function EventDetailPage({ id }) {
   if (id === 'womens-conference-2026' || id === 'dua-womens-conference-2026') {
     return <WomensConferencePage />;
+  }
+  if (id === 'dua-forum-johannesburg-2023' || id === 'johannesburg-2023') {
+    return <JohannesburgForumPage />;
+  }
+  if (id === 'ydua-forum-lilongwe-2021' || id === 'ydua-2021' || id === 'ydua') {
+    return <YduaPage />;
   }
   const { item: foundItem } = useEvent(id);
   const item = foundItem || staticEvents[0];

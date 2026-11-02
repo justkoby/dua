@@ -37,6 +37,9 @@ export function resolvePage(pathname) {
   if (['/about/', '/about-us/', '/who-we-are/', '/our-mission-vision/'].includes(path)) {
     return { type: 'about' };
   }
+  if (['/ydua/', '/programmes/ydua/', '/youth/'].includes(path)) {
+    return { type: 'ydua' };
+  }
   if (['/priorities/', '/research/', '/governance-diplomacy/', '/trade-industrial-policy/', '/technology-energy-climate/'].includes(path)) {
     return { type: 'priorities' };
   }

@@ -11,6 +11,7 @@ import { NewsPage, NewsArticle } from './news-live.jsx';
 import { OpportunitiesPage, OpportunityDetailPage } from './OpportunitiesPages.jsx';
 import CommentariesPage from './CommentariesPage.jsx';
 import { PartnersPage, PolicyBriefsPage } from './PartnersPolicyPages.jsx';
+import YduaPage from './YduaPage.jsx';
 import { duaPriorities, duaMemberParties } from '../dua-data.js';
 import './inner-pages.css';
 
@@ -737,6 +738,7 @@ export default function InnerPages({ route }) {
   if (route.type === 'partners') return <PartnersPage />;
   if (route.type === 'policy') return <PolicyBriefsPage />;
   if (route.type === 'priorities') return <PrioritiesPage />;
+  if (route.type === 'ydua') return <YduaPage />;
   if (route.type === 'members') return <MembersPage />;
   if (route.type === 'about') return <AboutPage />;
   if (route.type === 'team') return <TeamPage groupId={route.group} />;
