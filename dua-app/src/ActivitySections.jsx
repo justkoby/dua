@@ -58,10 +58,11 @@ export function EvidenceStrip() {
 }
 
 export function ActivitySection({ content }) {
-  const pick = (id, fallback) => activities.find(s => s.id === id) ?? activities.find(s => s.id === fallback) ?? activities[0];
-  const lead = pick(content.lead, 'tundu-lissu');
-  const cards = content.cards.map((id, i) =>
-    pick(id, ['resolution-tanzania-r6', 'angola-50-years', 'ct-masterclass-2026'][i])
+  const pick = (id, fallback) => activities.find(s => s.id === id) ?? activities.find(s => s.id === fallback);
+  const lead = pick(content?.lead, 'tundu-lissu') || activities[0];
+  const fallbackIds = ['resolution-tanzania-tundu-lissu-2026', 'angola-political-violence', 'ct-masterclass-2026'];
+  const cards = (content?.cards || fallbackIds).map((id, i) =>
+    pick(id, fallbackIds[i]) || activities[i + 1] || activities[i] || activities[0]
   );
   return (
     <section id="activity" className="activity-section section-pad container">
@@ -93,8 +94,8 @@ export function ActivitySection({ content }) {
         </div>
       </a>
       <div className="activity-grid">
-        {cards.map(story => (
-          <a className="activity-card" href={storyUrl(story.id)} key={story.id}>
+        {cards.map((story, idx) => (
+          <a className="activity-card" href={storyUrl(story.id)} key={`${story.id}-${idx}`}>
             <SourcePhoto photo={story.photo} />
             <div className="activity-card-copy">
               <span className="eyebrow">

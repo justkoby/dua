@@ -93,7 +93,26 @@ const DEMO_KNOWLEDGE = [
     ],
   },
   {
-    match: ['forum', 'event', '2026', 'nairobi', 'accra', 'masterclass', 'ct group', 'register'],
+    match: ['women', 'womens conference', 'namibia', 'samira', 'ellen johnson sirleaf', 'windhoek 2026', 'courage award'],
+    reply:
+      'The DUA Women’s Conference 2026 convened in Windhoek, Namibia from October 25 to 28, 2026, under the theme “Women Working Together for Political Power, Progress and Prosperity”. Special Guest of Honour H.E. Lady Samira Bawumia delivered the keynote address, Nobel Laureate H.E. Ellen Johnson Sirleaf was honoured with the DUA Woman of Courage Award, and delegates adopted three official country resolutions on Tanzania, Côte d’Ivoire, and Uganda.',
+    sources: [
+      { label: 'DUA Women’s Conference 2026 Highlights', href: '/events/womens-conference-2026/' },
+      { label: 'Official Conference Gallery', href: '/events/womens-conference-2026/#gallery' },
+      { label: 'Windhoek Resolutions (.docx)', href: '/policy-briefs/' },
+    ],
+  },
+  {
+    match: ['berlin', 'retreat', 'cdu', 'kas', 'germany', 'strategy'],
+    reply:
+      'In February 2026, the DUA Executive Board led by Chairperson Louisa Atta-Agyemang and Vice Chairman Hon. McHenry Venaani concluded a high-level strategic retreat at CDU Headquarters in Berlin with the Konrad-Adenauer-Stiftung (KAS), aligning on party development, international observation missions, and democracy defense.',
+    sources: [
+      { label: 'Berlin Strategic Retreat Report', href: '/news/dua-berlin-board-retreat-2026/' },
+      { label: 'Global Network & Partners', href: '/partners/' },
+    ],
+  },
+  {
+    match: ['forum', 'event', 'events', '2026', 'nairobi', 'accra', 'masterclass', 'ct group', 'register'],
     reply:
       'DUA Forum 2026 is the upcoming flagship annual convening of the Democracy Union of Africa (host city and official dates to be announced). Delegations and partners can register early interest with the Secretariat. DUA also launched the 2026 Campaign & Electioneering Masterclass Series with CT Group in January 2026, following past Annual Forums in Nairobi (2025) and Accra (2024).',
     sources: [

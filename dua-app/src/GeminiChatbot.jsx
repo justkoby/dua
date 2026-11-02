@@ -1,29 +1,15 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
-import { ArrowUpRight, Bot, RotateCcw, Send, Sparkles, Trash2, X, AlertCircle } from 'lucide-react';
+import { ArrowUpRight, RotateCcw, Send, Sparkles, X, AlertCircle } from 'lucide-react';
 import { buildDemoAnswer } from '../api/chat.js';
 
-const STORAGE_KEY = 'dua-gemini-chat-history-v1';
+const STORAGE_KEY = 'dua-gemini-chat-history-v2';
 
-const SUGGESTED_QUESTIONS = [
-  'What is the Democracy Union of Africa (DUA)?',
-  'Who are DUA’s Chairperson and Executive Leaders?',
-  'What are DUA’s latest statements and Windhoek resolutions?',
-  'Which political parties are members of DUA?',
-  'How can we participate in DUA Forum 2026?',
+const SUGGESTIONS = [
+  { label: 'About DUA', query: 'Tell me about the Democracy Union of Africa (DUA)' },
+  { label: 'Latest news', query: 'What are DUA’s latest news and official statements?' },
+  { label: 'Our leadership', query: 'Who are DUA’s Chairperson and executive leaders?' },
+  { label: 'Events', query: 'What are DUA’s recent events, forums, and convenings?' },
 ];
-
-const INITIAL_WELCOME = {
-  id: 'welcome',
-  role: 'assistant',
-  mode: 'system',
-  content:
-    'Welcome to the Democracy Union of Africa (DUA) Assistant. Ask me about DUA’s mission since 1997, Executive Leadership, Member Parties, our six priorities, official statements, Windhoek 2026 resolutions, or DUA Forum 2026.',
-  sources: [
-    { label: 'Who We Are', href: '/who-we-are/' },
-    { label: 'News & Official Statements', href: '/news/' },
-    { label: 'Publications & Resolutions', href: '/policy-briefs/' },
-  ],
-};
 
 export default function GeminiChatbot() {
   const [open, setOpen] = useState(false);
@@ -37,7 +23,7 @@ export default function GeminiChatbot() {
     } catch {
       // ignore storage errors
     }
-    return [INITIAL_WELCOME];
+    return [];
   });
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -59,7 +45,7 @@ export default function GeminiChatbot() {
 
   useEffect(() => {
     if (!open) return undefined;
-    const timer = window.setTimeout(() => inputRef.current?.focus(), 40);
+    const timer = window.setTimeout(() => inputRef.current?.focus(), 50);
     const onKeyDown = event => {
       if (event.key === 'Escape') {
         event.stopPropagation();
@@ -75,7 +61,7 @@ export default function GeminiChatbot() {
   }, [open]);
 
   useEffect(() => {
-    if (open) {
+    if (open && messages.length > 0) {
       listEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }, [messages, loading, errorState, open]);
@@ -102,16 +88,13 @@ export default function GeminiChatbot() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: trimmed,
-          messages: updatedHistory
-            .filter(m => m.id !== 'welcome')
-            .map(m => ({ role: m.role, content: m.content })),
+          messages: updatedHistory.map(m => ({ role: m.role, content: m.content })),
         }),
       });
 
       const contentType = response.headers.get('content-type') || '';
       if (!contentType.includes('application/json')) {
-        // Static hosting fallback when /api/chat serverless endpoint is not mounted:
-        // Explicitly respond in Demo Mode using approved DUA site content (never faking live Gemini).
+        // Fallback to approved DUA site content in demo mode
         const demoPayload = buildDemoAnswer(trimmed);
         setConnectionMode('demo');
         setMessages(current => [
@@ -121,8 +104,7 @@ export default function GeminiChatbot() {
             role: 'assistant',
             mode: 'demo',
             content: demoPayload.reply,
-            sources: demoPayload.sources,
-            disclaimer: demoPayload.disclaimer,
+            sources: demoPayload.sources || [],
           },
         ]);
         setLoading(false);
@@ -144,7 +126,6 @@ export default function GeminiChatbot() {
           mode,
           content: data.reply,
           sources: data.sources || [],
-          disclaimer: data.disclaimer,
         },
       ]);
     } catch (err) {
@@ -162,14 +143,16 @@ export default function GeminiChatbot() {
     sendQuestion(input);
   };
 
-  const clearHistory = () => {
-    setMessages([INITIAL_WELCOME]);
+  const startNewConversation = () => {
+    setMessages([]);
     setErrorState(null);
+    setInput('');
     try {
       window.sessionStorage.removeItem(STORAGE_KEY);
     } catch {
       // ignore
     }
+    inputRef.current?.focus();
   };
 
   return (
@@ -181,30 +164,35 @@ export default function GeminiChatbot() {
           aria-modal="false"
           aria-labelledby={titleId}
         >
+          {/* Header */}
           <header className="dua-gemini-header">
             <div className="dua-gemini-brand">
               <span className="dua-gemini-avatar" aria-hidden="true">
-                <Sparkles size={16} />
+                <Sparkles size={16} strokeWidth={2} />
               </span>
               <div>
-                <h2 id={titleId}>DUA Gemini Assistant</h2>
-                <span className={`dua-gemini-badge ${connectionMode === 'live' ? 'is-live' : 'is-demo'}`}>
-                  {connectionMode === 'live'
-                    ? 'Live Gemini API'
-                    : 'Demo Mode · Official DUA Site Content'}
-                </span>
+                <div className="dua-gemini-title-row">
+                  <h2 id={titleId}>Ask DUA</h2>
+                  {connectionMode === 'demo' && (
+                    <span className="dua-gemini-demo-tag" title="Operating with approved DUA knowledge base">
+                      Demo
+                    </span>
+                  )}
+                </div>
+                <p className="dua-gemini-subtitle">Your guide to DUA</p>
               </div>
             </div>
+
             <div className="dua-gemini-header-actions">
-              {messages.length > 1 && (
+              {messages.length > 0 && (
                 <button
                   type="button"
                   className="dua-gemini-icon-btn"
-                  onClick={clearHistory}
-                  aria-label="Clear conversation history"
-                  title="Clear conversation"
+                  onClick={startNewConversation}
+                  aria-label="Start a new conversation"
+                  title="New conversation"
                 >
-                  <Trash2 size={15} aria-hidden="true" />
+                  <RotateCcw size={15} aria-hidden="true" />
                 </button>
               )}
               <button
@@ -214,106 +202,128 @@ export default function GeminiChatbot() {
                   setOpen(false);
                   launcherRef.current?.focus();
                 }}
-                aria-label="Close DUA Gemini Assistant"
+                aria-label="Close Ask DUA"
+                title="Close"
               >
-                <X size={18} aria-hidden="true" />
+                <X size={17} aria-hidden="true" />
               </button>
             </div>
           </header>
 
-          <div className="dua-gemini-disclaimer-bar">
-            Generated answers summarize approved DUA website content and are distinct from formal DUA Executive statements.
-          </div>
-
-          <div className="dua-gemini-messages" role="log" aria-live="polite">
-            {messages.map(msg => (
-              <article
-                key={msg.id}
-                className={`dua-gemini-msg dua-gemini-msg--${msg.role}`}
-              >
-                <div className="dua-gemini-msg-meta">
-                  <span>
-                    {msg.role === 'user'
-                      ? 'You'
-                      : msg.mode === 'live'
-                      ? 'Gemini AI · DUA Assistant'
-                      : msg.mode === 'demo'
-                      ? 'DUA Assistant (Demo Mode)'
-                      : 'DUA Assistant'}
-                  </span>
+          {/* Main Area: Welcome State OR Conversation */}
+          <div className="dua-gemini-body">
+            {messages.length === 0 ? (
+              <div className="dua-gemini-welcome">
+                <div className="dua-gemini-welcome-card">
+                  <div className="dua-gemini-welcome-icon" aria-hidden="true">
+                    <Sparkles size={22} strokeWidth={2} />
+                  </div>
+                  <h3>Hello there.</h3>
+                  <p>
+                    Looking for information about DUA? I can help you explore our work, leadership, events and publications.
+                  </p>
                 </div>
-                <div className="dua-gemini-msg-bubble">
-                  <p>{msg.content}</p>
-                  {msg.sources?.length > 0 && (
-                    <div className="dua-gemini-sources">
-                      <span>Official DUA pages:</span>
-                      <div className="dua-gemini-source-links">
-                        {msg.sources.map(src => (
-                          <a key={src.href} href={src.href} onClick={() => setOpen(false)}>
-                            {src.label} <ArrowUpRight size={13} aria-hidden="true" />
-                          </a>
-                        ))}
+
+                <div className="dua-gemini-chips-container" aria-label="Suggested topics">
+                  <span className="dua-gemini-chips-label">Quick topics</span>
+                  <div className="dua-gemini-chips">
+                    {SUGGESTIONS.map(s => (
+                      <button
+                        key={s.label}
+                        type="button"
+                        className="dua-gemini-chip"
+                        onClick={() => sendQuestion(s.query)}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="dua-gemini-disclaimer">
+                  AI-generated responses. Verify official statements using linked sources.
+                </p>
+              </div>
+            ) : (
+              <div className="dua-gemini-messages" role="log" aria-live="polite">
+                {messages.map(msg => (
+                  <article
+                    key={msg.id}
+                    className={`dua-gemini-msg dua-gemini-msg--${msg.role}`}
+                  >
+                    <div className="dua-gemini-msg-bubble">
+                      <p>{msg.content}</p>
+
+                      {msg.role === 'assistant' && msg.sources?.length > 0 && (
+                        <div className="dua-gemini-sources">
+                          <span className="dua-gemini-sources-title">Verified sources:</span>
+                          <div className="dua-gemini-source-links">
+                            {msg.sources.map(src => (
+                              <a
+                                key={src.href}
+                                href={src.href}
+                                className="dua-gemini-source-pill"
+                                onClick={() => setOpen(false)}
+                              >
+                                <span>{src.label}</span>
+                                <ArrowUpRight size={12} aria-hidden="true" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                ))}
+
+                {loading && (
+                  <div className="dua-gemini-msg dua-gemini-msg--assistant" role="status">
+                    <div className="dua-gemini-msg-bubble dua-gemini-typing-bubble">
+                      <div className="dua-gemini-typing-indicator" aria-label="Thinking">
+                        <span className="dot" />
+                        <span className="dot" />
+                        <span className="dot" />
                       </div>
                     </div>
-                  )}
-                  {msg.disclaimer && (
-                    <p className="dua-gemini-msg-note">{msg.disclaimer}</p>
-                  )}
-                </div>
-              </article>
-            ))}
+                  </div>
+                )}
 
-            {messages.length === 1 && !loading && (
-              <div className="dua-gemini-suggestions" aria-label="Suggested questions">
-                <p className="eyebrow">SUGGESTED QUESTIONS</p>
-                <div className="dua-gemini-suggestion-list">
-                  {SUGGESTED_QUESTIONS.map(q => (
+                {errorState && (
+                  <div className="dua-gemini-error" role="alert">
+                    <div className="dua-gemini-error-text">
+                      <AlertCircle size={15} aria-hidden="true" />
+                      <span>{errorState.message}</span>
+                    </div>
                     <button
-                      key={q}
                       type="button"
-                      onClick={() => sendQuestion(q)}
+                      className="dua-gemini-retry-btn"
+                      onClick={() => sendQuestion(errorState.retryQuestion)}
                     >
-                      {q}
+                      <RotateCcw size={12} aria-hidden="true" /> Retry
                     </button>
-                  ))}
-                </div>
+                  </div>
+                )}
+
+                {messages.length > 0 && (
+                  <p className="dua-gemini-disclaimer dua-gemini-disclaimer--inline">
+                    AI-generated responses. Verify official statements using linked sources.
+                  </p>
+                )}
+
+                <div ref={listEndRef} />
               </div>
             )}
-
-            {loading && (
-              <div className="dua-gemini-loading" role="status">
-                <Bot size={16} aria-hidden="true" />
-                <span>Consulting DUA knowledge base…</span>
-              </div>
-            )}
-
-            {errorState && (
-              <div className="dua-gemini-error" role="alert">
-                <div className="dua-gemini-error-text">
-                  <AlertCircle size={16} aria-hidden="true" />
-                  <span>{errorState.message}</span>
-                </div>
-                <button
-                  type="button"
-                  className="dua-gemini-retry-btn"
-                  onClick={() => sendQuestion(errorState.retryQuestion)}
-                >
-                  <RotateCcw size={14} aria-hidden="true" /> Retry
-                </button>
-              </div>
-            )}
-
-            <div ref={listEndRef} />
           </div>
 
+          {/* Fixed Input Form */}
           <form className="dua-gemini-input-bar" onSubmit={handleSubmit}>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              placeholder="Ask about DUA leadership, statements, priorities..."
-              aria-label="Ask the DUA Gemini Assistant a question"
+              placeholder="Ask a question..."
+              aria-label="Ask DUA a question"
               maxLength={400}
               disabled={loading}
             />
@@ -321,27 +331,27 @@ export default function GeminiChatbot() {
               type="submit"
               className="dua-gemini-send-btn"
               disabled={!input.trim() || loading}
-              aria-label="Send question"
+              aria-label="Send message"
             >
-              <Send size={16} aria-hidden="true" />
+              <Send size={15} aria-hidden="true" />
             </button>
           </form>
         </section>
       )}
 
+      {/* Floating Launcher Button */}
       <button
         ref={launcherRef}
         type="button"
         className={`dua-gemini-launcher ${open ? 'is-open' : ''}`}
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
-        aria-label={open ? 'Close DUA Gemini AI Assistant' : 'Open DUA Gemini AI Assistant'}
-        title={open ? 'Close DUA AI Assistant' : 'Ask DUA AI Assistant'}
+        aria-label={open ? 'Close Ask DUA assistant' : 'Open Ask DUA assistant'}
+        title={open ? 'Close Ask DUA' : 'Ask DUA'}
       >
         <Sparkles size={20} aria-hidden="true" />
-        <span className="sr-only">Ask DUA AI</span>
+        <span className="sr-only">Ask DUA</span>
       </button>
     </div>
   );
 }
-

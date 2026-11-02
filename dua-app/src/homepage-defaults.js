@@ -31,7 +31,7 @@ export const homepageDefaults = {
     heading: ['Principled voices.', 'Across the continent.'],
     intro: ['Official statements from the Chairperson, Windhoek resolutions', 'and continental programme updates.'],
     lead: 'tundu-lissu',
-    cards: ['resolution-tanzania-r6', 'angola-50-years', 'ct-masterclass-2026'],
+    cards: ['resolution-tanzania-tundu-lissu-2026', 'angola-political-violence', 'ct-masterclass-2026'],
   },
   people: {
     eyebrow: 'EXECUTIVE LEADERSHIP & VICE-CHAIRS',

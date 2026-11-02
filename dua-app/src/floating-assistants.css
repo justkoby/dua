@@ -72,73 +72,101 @@
   transform: translateY(-2px) scale(1.04);
 }
 
+/* Modern Minimal Ask DUA Chatbot Window */
 .dua-gemini-window {
   position: fixed;
   right: 22px;
   bottom: 82px;
-  width: min(410px, calc(100vw - 32px));
-  height: min(580px, calc(100dvh - 116px));
-  background: #fcfbf7;
-  color: var(--navy, #071e30);
-  border: 1px solid rgba(7, 30, 48, 0.18);
-  border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(7, 30, 48, 0.32);
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: min(540px, calc(100dvh - 120px));
+  background: #ffffff;
+  color: var(--navy, #11244D);
+  border: 1px solid rgba(17, 36, 77, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(17, 36, 77, 0.2), 0 2px 10px rgba(17, 36, 77, 0.05);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 96;
+  font-family: var(--font-sans, 'Mark Pro', -apple-system, BlinkMacSystemFont, sans-serif);
+  animation: duaChatWindowFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@keyframes duaChatWindowFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
 .dua-gemini-header {
-  background: var(--navy, #071e30);
+  background: var(--navy, #11244D);
   color: #ffffff;
-  padding: 14px 16px;
+  padding: 13px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border-bottom: 1px solid rgba(216, 187, 117, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
 }
 
 .dua-gemini-brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
 }
 
 .dua-gemini-avatar {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(216, 187, 117, 0.16);
-  border: 1px solid rgba(216, 187, 117, 0.55);
-  color: var(--gold, #d8bb75);
+  background: rgba(39, 182, 232, 0.16);
+  border: 1px solid rgba(39, 182, 232, 0.4);
+  color: var(--sea-blue, #27B6E8);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.dua-gemini-brand h2 {
+.dua-gemini-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dua-gemini-title-row h2 {
   margin: 0;
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   color: #ffffff;
+  line-height: 1.2;
 }
 
-.dua-gemini-badge {
-  display: inline-block;
-  margin-top: 2px;
-  font-size: 0.7rem;
+.dua-gemini-demo-tag {
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--gold, #d8bb75);
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1px 6px;
+  border-radius: 8px;
 }
 
-.dua-gemini-badge.is-live {
-  color: #86efac;
+.dua-gemini-subtitle {
+  margin: 1px 0 0;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  line-height: 1.2;
 }
 
 .dua-gemini-header-actions {
@@ -148,84 +176,163 @@
 }
 
 .dua-gemini-icon-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 150ms ease;
 }
 
 .dua-gemini-icon-btn:hover,
 .dua-gemini-icon-btn:focus-visible {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
+  outline: none;
 }
 
-.dua-gemini-disclaimer-bar {
-  padding: 8px 14px;
-  background: #f1efe8;
-  border-bottom: 1px solid rgba(7, 30, 48, 0.1);
-  font-size: 0.74rem;
-  line-height: 1.4;
-  color: rgba(7, 30, 48, 0.78);
-}
-
-.dua-gemini-messages {
+/* Body container */
+.dua-gemini-body {
   flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+/* Welcome Screen */
+.dua-gemini-welcome {
+  flex: 1;
+  padding: 22px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dua-gemini-welcome-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: left;
+}
+
+.dua-gemini-welcome-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(39, 182, 232, 0.14);
+  color: var(--sea-blue, #27B6E8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.dua-gemini-welcome-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy, #11244D);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.dua-gemini-welcome-card p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+
+/* Suggestion Chips */
+.dua-gemini-chips-container {
+  margin: 18px 0 12px;
+}
+
+.dua-gemini-chips-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.dua-gemini-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.dua-gemini-chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 6px 13px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy, #11244D);
+  cursor: pointer;
+  transition: all 160ms ease;
+  text-align: left;
+}
+
+.dua-gemini-chip:hover,
+.dua-gemini-chip:focus-visible {
+  background: #f1f5f9;
+  border-color: var(--sea-blue, #27B6E8);
+  color: var(--dua-blue, #0867A9);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Messages View */
+.dua-gemini-messages {
+  flex: 1;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .dua-gemini-msg {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  max-width: 92%;
 }
 
 .dua-gemini-msg--user {
   align-self: flex-end;
+  max-width: 82%;
 }
 
 .dua-gemini-msg--assistant {
   align-self: flex-start;
-}
-
-.dua-gemini-msg-meta {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: rgba(7, 30, 48, 0.58);
-}
-
-.dua-gemini-msg--user .dua-gemini-msg-meta {
-  text-align: right;
+  max-width: 88%;
 }
 
 .dua-gemini-msg-bubble {
-  padding: 12px 14px;
-  border-radius: 6px;
-  font-size: 0.89rem;
-  line-height: 1.58;
-}
-
-.dua-gemini-msg--assistant .dua-gemini-msg-bubble {
-  background: #ffffff;
-  border: 1px solid rgba(7, 30, 48, 0.12);
-  color: var(--navy, #071e30);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.52;
 }
 
 .dua-gemini-msg--user .dua-gemini-msg-bubble {
-  background: var(--sticky-blue, #143e69);
+  background: var(--navy, #11244D);
   color: #ffffff;
+  border-radius: 14px 14px 2px 14px;
+}
+
+.dua-gemini-msg--assistant .dua-gemini-msg-bubble {
+  background: #f8fafc;
+  color: var(--navy, #11244D);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px 14px 14px 2px;
 }
 
 .dua-gemini-msg-bubble p {
@@ -233,126 +340,119 @@
   white-space: pre-line;
 }
 
+/* Source references */
 .dua-gemini-sources {
-  margin-top: 10px;
-  padding-top: 9px;
-  border-top: 1px solid rgba(7, 30, 48, 0.1);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
 }
 
-.dua-gemini-sources > span {
+.dua-gemini-sources-title {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: rgba(7, 30, 48, 0.62);
-  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 5px;
 }
 
 .dua-gemini-source-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
-.dua-gemini-source-links a {
+.dua-gemini-source-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--dua-blue, #0867A9);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 140ms ease;
+}
+
+.dua-gemini-source-pill:hover {
+  background: #f0f9ff;
+  border-color: var(--sea-blue, #27B6E8);
+}
+
+/* Typing Indicator */
+.dua-gemini-typing-bubble {
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px 14px 14px 2px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dua-gemini-typing-indicator {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 9px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--navy, #071e30);
-  background: #f5f2e8;
-  border: 1px solid rgba(7, 30, 48, 0.15);
-  border-radius: 4px;
-  text-decoration: none;
 }
 
-.dua-gemini-source-links a:hover {
-  background: var(--gold, #d8bb75);
+.dua-gemini-typing-indicator .dot {
+  width: 5px;
+  height: 5px;
+  background: #64748b;
+  border-radius: 50%;
+  animation: duaDotPulse 1.3s infinite ease-in-out;
 }
 
-.dua-gemini-msg-note {
-  margin-top: 8px !important;
-  font-size: 0.72rem;
-  color: rgba(7, 30, 48, 0.64);
-  font-style: italic;
+.dua-gemini-typing-indicator .dot:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-.dua-gemini-suggestions {
-  margin-top: 4px;
+.dua-gemini-typing-indicator .dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-.dua-gemini-suggestions .eyebrow {
-  font-size: 0.7rem;
-  margin-bottom: 8px;
+@keyframes duaDotPulse {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
 }
 
-.dua-gemini-suggestion-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.dua-gemini-suggestion-list button {
-  text-align: left;
-  padding: 9px 12px;
-  font-family: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy, #071e30);
-  background: #ffffff;
-  border: 1px solid rgba(7, 30, 48, 0.15);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 150ms ease, border-color 150ms ease;
-}
-
-.dua-gemini-suggestion-list button:hover,
-.dua-gemini-suggestion-list button:focus-visible {
-  background: #f5f1e4;
-  border-color: var(--navy, #071e30);
-}
-
-.dua-gemini-loading {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--sticky-blue, #143e69);
-  background: rgba(20, 62, 105, 0.08);
-  border-radius: 4px;
-}
-
+/* Error banner */
 .dua-gemini-error {
-  padding: 10px 12px;
+  padding: 9px 12px;
   background: #fef2f2;
   border: 1px solid #fecaca;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #991b1b;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .dua-gemini-error-text {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 }
 
 .dua-gemini-retry-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
+  gap: 4px;
+  padding: 4px 8px;
   font-family: inherit;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   background: #ffffff;
   color: #991b1b;
@@ -362,36 +462,60 @@
   flex-shrink: 0;
 }
 
+/* Disclaimer text */
+.dua-gemini-disclaimer {
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: #94a3b8;
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.dua-gemini-disclaimer--inline {
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+/* Fixed input bar */
 .dua-gemini-input-bar {
-  padding: 12px 14px;
+  padding: 10px 12px;
   background: #ffffff;
-  border-top: 1px solid rgba(7, 30, 48, 0.12);
+  border-top: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .dua-gemini-input-bar input {
   flex: 1;
-  min-height: 40px;
-  padding: 0 12px;
-  border: 1px solid rgba(7, 30, 48, 0.22);
-  border-radius: 4px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
   font-family: inherit;
-  font-size: 0.88rem;
-  color: var(--navy, #071e30);
-  background: #fcfbf7;
+  font-size: 0.83rem;
+  color: var(--navy, #11244D);
+  background: #f8fafc;
+  transition: all 160ms ease;
 }
 
 .dua-gemini-input-bar input:focus {
-  outline: 2px solid var(--sticky-blue, #143e69);
-  outline-offset: 1px;
+  outline: none;
+  background: #ffffff;
+  border-color: var(--sea-blue, #27B6E8);
+  box-shadow: 0 0 0 2px rgba(39, 182, 232, 0.15);
+}
+
+.dua-gemini-input-bar input::placeholder {
+  color: #94a3b8;
 }
 
 .dua-gemini-send-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: none;
   background: var(--sea-blue, #27B6E8);
   color: #ffffff;
@@ -400,10 +524,16 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+  transition: all 160ms ease;
+}
+
+.dua-gemini-send-btn:hover:not(:disabled) {
+  background: #0ea5e9;
+  transform: scale(1.05);
 }
 
 .dua-gemini-send-btn:disabled {
-  opacity: 0.45;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -426,9 +556,11 @@
   .dua-gemini-window {
     right: 12px;
     left: 12px;
-    bottom: 68px;
+    bottom: 74px;
     width: auto;
-    height: min(520px, calc(100dvh - 88px));
+    max-width: none;
+    height: min(540px, calc(100dvh - 90px));
+    border-radius: 14px;
   }
 }
 
