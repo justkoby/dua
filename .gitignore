@@ -1,0 +1,6 @@
+# DUA Git Ignore
+node_modules/
+.DS_Store
+*.log
+new-images/
+
