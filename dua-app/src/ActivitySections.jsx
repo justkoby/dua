@@ -59,11 +59,23 @@ export function EvidenceStrip() {
 
 export function ActivitySection({ content }) {
   const pick = (id, fallback) => activities.find(s => s.id === id) ?? activities.find(s => s.id === fallback);
-  const lead = pick(content?.lead, 'tundu-lissu') || activities[0];
-  const fallbackIds = ['resolution-tanzania-tundu-lissu-2026', 'angola-political-violence', 'ct-masterclass-2026'];
-  const cards = (content?.cards || fallbackIds).map((id, i) =>
-    pick(id, fallbackIds[i]) || activities[i + 1] || activities[i] || activities[0]
-  );
+  const lead = pick(content?.lead, 'angola-political-violence') || activities[0];
+  const chosenIds = new Set([lead.id]);
+  const fallbackIds = ['ct-masterclass-2026', 'npp-flagbearer-election', 'uganda-post-election'];
+  const candidateIds = content?.cards || fallbackIds;
+
+  const cards = [];
+  for (let i = 0; i < candidateIds.length; i++) {
+    const id = candidateIds[i];
+    let story = activities.find(s => s.id === id && !chosenIds.has(s.id));
+    if (!story) {
+      story = activities.find(s => !chosenIds.has(s.id));
+    }
+    if (story && !chosenIds.has(story.id)) {
+      cards.push(story);
+      chosenIds.add(story.id);
+    }
+  }
   return (
     <section id="activity" className="activity-section section-pad container">
       <div className="section-heading">

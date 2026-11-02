@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowUpRight, ArrowLeft, ArrowDown, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, ArrowRight, ArrowDown, Mail, MapPin, Phone } from 'lucide-react';
 import CommentaryArticle from './CommentaryArticle.jsx';
 import { aboutContent } from './about-content.js';
 import { teamMembers, additionalTeamMembers, getMember } from './team-content.js';
@@ -75,8 +75,9 @@ export function AboutPage() {
           {[
             ['who-we-are', 'Who we are'],
             ['mission', 'Mission & vision'],
+            ['priorities', 'Six strategic pillars'],
             ['chairperson-message', 'Chairperson’s message'],
-            ['approach', 'Our priorities'],
+            ['approach', 'Core work'],
             ['values', 'Our values'],
             ['our-people', 'Leadership'],
           ].map(([id, label]) => (
@@ -145,6 +146,41 @@ export function AboutPage() {
                   )
                 )}
             </p>
+          </div>
+        </section>
+
+        <section id="priorities" className="focus-section section-pad" style={{ background: '#f5f9fc' }}>
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">03 / STRATEGIC PILLARS</p>
+                <h2>
+                  Six strategic pillars.
+                  <br />
+                  One democratic union.
+                </h2>
+              </div>
+              <p>
+                From constitutionalism and electoral integrity
+                <br className="desktop-break" /> to free enterprise and youth empowerment.
+              </p>
+            </div>
+            <div className="focus-grid">
+              {duaPriorities.map((f, i) => (
+                <a href={`/priorities/#${f.id}`} className="focus-card" key={f.id}>
+                  <div className="card-top">
+                    <span>{f.number}</span>
+                    <Arrow />
+                  </div>
+                  <h3>{f.title}</h3>
+                  <h4>{f.tag}</h4>
+                  <p>{f.summary}</p>
+                  <span className="card-bottom">
+                    EXPLORE {f.shortTitle.toUpperCase()} <ArrowRight size={17} />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 

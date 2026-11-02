@@ -53,7 +53,14 @@ function matchesCategory(item, category) {
 
 export function filterNews({ query = '', category = 'All Updates', items = newsItems } = {}) {
   const words = normalise(query).trim().split(/\s+/).filter(Boolean);
-  return items
+  const seen = new Set();
+  const deduped = items.filter(item => {
+    const key = String(item.slug || item.id || '').trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return deduped
     .filter(
       item =>
         matchesCategory(item, category) &&

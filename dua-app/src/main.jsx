@@ -46,22 +46,16 @@ function FeaturedWomensConference() {
               Women Working Together for Political Power, Progress and Prosperity.
             </h2>
             <p className="lead">
-              Hosted in Windhoek, Namibia, the landmark conference united women party leaders, legislators, and international dignitaries from over 25 African nations.
-            </p>
-            <p>
-              Special Guest of Honour H.E. Lady Samira Bawumia delivered a compelling keynote address on moving beyond representation to true institutional governance, alongside the conferment of the DUA Woman of Courage Award on Nobel Laureate H.E. Ellen Johnson Sirleaf.
+              A landmark gathering of centre-right women leaders and legislators from across Africa and beyond.
             </p>
             <div className="wc-feature-chips">
-              <span>Oryx 2 Hall, Windhoek</span>
+              <span>Windhoek, Namibia</span>
               <span>25–28 Oct 2026</span>
               <span>3 Adopted Resolutions</span>
             </div>
             <div className="wc-feature-actions">
               <a className="button gold" href="/events/womens-conference-2026/">
                 View Conference Highlights <ArrowUpRight size={18} />
-              </a>
-              <a className="text-link" href="/events/womens-conference-2026/#gallery">
-                Explore Photo Gallery <ArrowUpRight size={17} />
               </a>
             </div>
           </div>
@@ -426,31 +420,22 @@ function App() {
                 <div className="container">
                   <div className="section-heading">
                     <div>
-                      <p className="eyebrow">{c.focus.eyebrow}</p>
+                      <p className="eyebrow">OUR STRATEGIC PRIORITIES</p>
                       <h2>
-                        <Lines lines={c.focus.heading} />
+                        Six strategic pillars.
+                        <br />
+                        One democratic union.
                       </h2>
                     </div>
                     <p>
-                      {c.focus.intro[0]}
-                      <br className="desktop-break" /> {c.focus.intro[1]}
+                      From constitutionalism and electoral integrity
+                      <br className="desktop-break" /> to free enterprise and youth empowerment.
                     </p>
                   </div>
-                  <div className="focus-grid">
-                    {c.focus.cards.map((f, i) => (
-                      <a href={f.href} className="focus-card" key={i}>
-                        <div className="card-top">
-                          <span>0{i + 1}</span>
-                          <Arrow />
-                        </div>
-                        <h3>{f.title}</h3>
-                        <h4>{f.line}</h4>
-                        <p>{f.text}</p>
-                        <span className="card-bottom">
-                          EXPLORE {f.title.toUpperCase()} <ArrowRight size={17} />
-                        </span>
-                      </a>
-                    ))}
+                  <div>
+                    <a className="button gold" href="/who-we-are/#priorities">
+                      Explore Our Priorities <ArrowUpRight size={18} />
+                    </a>
                   </div>
                 </div>
               </section>

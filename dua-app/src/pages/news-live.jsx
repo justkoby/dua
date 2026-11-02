@@ -25,7 +25,16 @@ function asNews(item) {
 
 export function NewsPage() {
   const published = usePublished('news');
-  const rows = published.items.map(asNews).filter(item => item.publishedOn);
+  const seenSlugs = new Set();
+  const rows = published.items
+    .map(asNews)
+    .filter(item => {
+      if (!item.publishedOn) return false;
+      const key = item.slug || item.id;
+      if (seenSlugs.has(key)) return false;
+      seenSlugs.add(key);
+      return true;
+    });
   const categories = newsCategories;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState(() => {
@@ -36,6 +45,11 @@ export function NewsPage() {
   const results = filterNews({ query, category, items: rows });
   const featured = !query.trim() && category === 'All Updates' ? results[0] : null;
   const cards = results.filter(item => item.id !== featured?.id);
+
+  // Distinct highlight stories that don't duplicate featured or top visible cards
+  const highlightStories = activities
+    .filter(item => item.id !== featured?.id && !cards.slice(0, 3).some(c => c.id === item.id))
+    .slice(0, 3);
 
   return (
     <div className="fa-inner-page news-events-page">
@@ -121,13 +135,13 @@ export function NewsPage() {
             </a>
           </div>
           <div className="ne-programme-grid">
-            {activities.slice(0, 3).map(item => (
+            {highlightStories.map(item => (
               <a href={storyUrl(item.id)} key={item.id}>
-                <p className="eyebrow">{item.type}</p>
+                <p className="eyebrow">{item.type || item.category || 'Focus'}</p>
                 <h3>{item.title}</h3>
                 <p>{item.summary}</p>
                 <span className="text-link">
-                  {item.cta} <ArrowUpRight size={16} aria-hidden="true" />
+                  {item.documentUrl ? 'Read & download (.docx)' : 'Read statement'} <ArrowUpRight size={16} aria-hidden="true" />
                 </span>
               </a>
             ))}

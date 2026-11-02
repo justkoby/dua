@@ -441,44 +441,56 @@ const fallbackImageBySlug = {
   'youth-leadership-program': '/images/7.webp',
 };
 
-export const duaNewsItems = rawNewsItems.map(item => {
-  const isoDate = parseDuaDate(item.date);
-  const summaryText = item.summary || item.excerpt || '';
-  const paragraphs = blocksToParagraphs(item.body, summaryText);
-  const html = blocksToHtml(item.body, summaryText);
-  const plainWords = paragraphs.join(' ').split(/\s+/).filter(Boolean).length;
-  const localImage =
-    !item.image || item.image.startsWith('https://placehold.co')
-      ? fallbackImageBySlug[item.slug] || '/images/dua-conference-01.jpg'
-      : item.image;
+export function deduplicateArticles(items) {
+  const seen = new Set();
+  return items.filter(item => {
+    const key = String(item.slug || item.id || '').trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
 
-  return {
-    id: item.slug,
-    slug: item.slug,
-    title: item.title,
-    summary: summaryText,
-    excerpt: summaryText,
-    category: item.category,
-    country: item.country || 'Africa',
-    publishedOn: isoDate,
-    publishedAt: `${isoDate}T12:00:00Z`,
-    dateLabel: item.date,
-    dateline: item.datelineLocation || item.dateline || `${(item.country || 'Accra, Ghana').toUpperCase()}`,
-    spokesperson: item.spokesperson || 'Md Louisa Atta-Agyemang, Chairperson, DUA',
-    authorName: item.spokesperson || 'Democracy Union of Africa Secretariat',
-    image: localImage,
-    imageAlt: item.title,
-    featured: Boolean(item.featured),
-    documentUrl: item.documentUrl || null,
-    link: item.link || null,
-    readMinutes: Math.max(2, Math.round(plainWords / 180)),
-    body: paragraphs,
-    rawBody: paragraphs.join('\n\n'),
-    html: item.documentUrl
-      ? `${html}<p><strong>Official Document:</strong> <a href="${item.documentUrl}" download>Download original resolution (.docx)</a></p>`
-      : html,
-  };
-});
+export const duaNewsItems = deduplicateArticles(
+  rawNewsItems.map(item => {
+    const isoDate = parseDuaDate(item.date);
+    const summaryText = item.summary || item.excerpt || '';
+    const paragraphs = blocksToParagraphs(item.body, summaryText);
+    const html = blocksToHtml(item.body, summaryText);
+    const plainWords = paragraphs.join(' ').split(/\s+/).filter(Boolean).length;
+    const localImage =
+      !item.image || item.image.startsWith('https://placehold.co')
+        ? fallbackImageBySlug[item.slug] || '/images/dua-conference-01.jpg'
+        : item.image;
+
+    return {
+      id: item.slug,
+      slug: item.slug,
+      title: item.title,
+      summary: summaryText,
+      excerpt: summaryText,
+      category: item.category,
+      country: item.country || 'Africa',
+      publishedOn: isoDate,
+      publishedAt: `${isoDate}T12:00:00Z`,
+      dateLabel: item.date,
+      dateline: item.datelineLocation || item.dateline || `${(item.country || 'Accra, Ghana').toUpperCase()}`,
+      spokesperson: item.spokesperson || 'Md Louisa Atta-Agyemang, Chairperson, DUA',
+      authorName: item.spokesperson || 'Democracy Union of Africa Secretariat',
+      image: localImage,
+      imageAlt: item.title,
+      featured: Boolean(item.featured),
+      documentUrl: item.documentUrl || null,
+      link: item.link || null,
+      readMinutes: Math.max(2, Math.round(plainWords / 180)),
+      body: paragraphs,
+      rawBody: paragraphs.join('\n\n'),
+      html: item.documentUrl
+        ? `${html}<p><strong>Official Document:</strong> <a href="${item.documentUrl}" download>Download original resolution (.docx)</a></p>`
+        : html,
+    };
+  })
+).sort((a, b) => String(b.publishedOn).localeCompare(String(a.publishedOn)));
 
 export const duaPublications = [
   {
@@ -620,23 +632,6 @@ export const duaCommentaries = [
       <p>As DUA prepares for the <strong>DUA Forum 2026</strong>, the Union remains steadfast in its founding mission: building a freer, more stable, and more prosperous Africa.</p>
     `,
   },
-  ...duaNewsItems.slice(0, 4).map(item => ({
-    id: item.slug,
-    slug: item.slug,
-    title: item.title,
-    summary: item.summary,
-    topic: item.category === 'Publications' ? 'Resolutions & Policy' : 'Official Statements',
-    category: item.category === 'Publications' ? 'Resolutions & Policy' : 'Official Statements',
-    tags: [item.category, item.dateline],
-    authors: [item.spokesperson],
-    authorName: item.spokesperson,
-    date: item.publishedOn,
-    publishedAt: item.publishedAt,
-    image: item.image,
-    imageAlt: item.title,
-    readMinutes: item.readMinutes,
-    html: item.html,
-  })),
 ];
 
 export const duaEvents = [

@@ -4,7 +4,7 @@ export const aboutContent = {
     title: ['Advancing democracy.', 'Building prosperity.'],
     description:
       'Founded in 1997 and headquartered in Accra, Ghana, the Democracy Union of Africa (DUA) is the continental alliance of over 25 centre-right political parties and the African regional union of the International Democracy Union (IDU).',
-    image: '/images/dua-conference-01.jpg',
+    image: '/images/883299813_18147863017719458_6958169317196388941_n.webp',
     alt: 'Delegates at the Democracy Union of Africa Annual Forum.',
   },
   introduction: [
