@@ -1,0 +1,457 @@
+/* Floating Assistant Dock (WhatsApp + Gemini AI Assistant) */
+.dua-floating-dock {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.dua-floating-dock > * {
+  pointer-events: auto;
+}
+
+.dua-whatsapp-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #15803d;
+  color: #ffffff;
+  font-family: var(--font-sans, 'Mark Pro', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(7, 30, 48, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.dua-whatsapp-launcher:hover,
+.dua-whatsapp-launcher:focus-visible {
+  background: #166534;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(7, 30, 48, 0.34);
+}
+
+.dua-gemini-root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dua-gemini-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--navy, #071e30);
+  color: #ffffff;
+  border: 1px solid var(--gold, #d8bb75);
+  font-family: var(--font-sans, 'Mark Pro', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(7, 30, 48, 0.34);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.dua-gemini-launcher svg {
+  color: var(--gold, #d8bb75);
+}
+
+.dua-gemini-launcher:hover,
+.dua-gemini-launcher:focus-visible,
+.dua-gemini-launcher.is-open {
+  background: var(--sticky-blue, #143e69);
+  transform: translateY(-2px);
+}
+
+.dua-gemini-window {
+  position: fixed;
+  right: 22px;
+  bottom: 82px;
+  width: min(410px, calc(100vw - 32px));
+  height: min(580px, calc(100dvh - 116px));
+  background: #fcfbf7;
+  color: var(--navy, #071e30);
+  border: 1px solid rgba(7, 30, 48, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(7, 30, 48, 0.32);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 96;
+}
+
+.dua-gemini-header {
+  background: var(--navy, #071e30);
+  color: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(216, 187, 117, 0.28);
+}
+
+.dua-gemini-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.dua-gemini-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(216, 187, 117, 0.16);
+  border: 1px solid rgba(216, 187, 117, 0.55);
+  color: var(--gold, #d8bb75);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dua-gemini-brand h2 {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.dua-gemini-badge {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold, #d8bb75);
+}
+
+.dua-gemini-badge.is-live {
+  color: #86efac;
+}
+
+.dua-gemini-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dua-gemini-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dua-gemini-icon-btn:hover,
+.dua-gemini-icon-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.dua-gemini-disclaimer-bar {
+  padding: 8px 14px;
+  background: #f1efe8;
+  border-bottom: 1px solid rgba(7, 30, 48, 0.1);
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: rgba(7, 30, 48, 0.78);
+}
+
+.dua-gemini-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dua-gemini-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 92%;
+}
+
+.dua-gemini-msg--user {
+  align-self: flex-end;
+}
+
+.dua-gemini-msg--assistant {
+  align-self: flex-start;
+}
+
+.dua-gemini-msg-meta {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(7, 30, 48, 0.58);
+}
+
+.dua-gemini-msg--user .dua-gemini-msg-meta {
+  text-align: right;
+}
+
+.dua-gemini-msg-bubble {
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.89rem;
+  line-height: 1.58;
+}
+
+.dua-gemini-msg--assistant .dua-gemini-msg-bubble {
+  background: #ffffff;
+  border: 1px solid rgba(7, 30, 48, 0.12);
+  color: var(--navy, #071e30);
+}
+
+.dua-gemini-msg--user .dua-gemini-msg-bubble {
+  background: var(--sticky-blue, #143e69);
+  color: #ffffff;
+}
+
+.dua-gemini-msg-bubble p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.dua-gemini-sources {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(7, 30, 48, 0.1);
+}
+
+.dua-gemini-sources > span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(7, 30, 48, 0.62);
+  margin-bottom: 6px;
+}
+
+.dua-gemini-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dua-gemini-source-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy, #071e30);
+  background: #f5f2e8;
+  border: 1px solid rgba(7, 30, 48, 0.15);
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.dua-gemini-source-links a:hover {
+  background: var(--gold, #d8bb75);
+}
+
+.dua-gemini-msg-note {
+  margin-top: 8px !important;
+  font-size: 0.72rem;
+  color: rgba(7, 30, 48, 0.64);
+  font-style: italic;
+}
+
+.dua-gemini-suggestions {
+  margin-top: 4px;
+}
+
+.dua-gemini-suggestions .eyebrow {
+  font-size: 0.7rem;
+  margin-bottom: 8px;
+}
+
+.dua-gemini-suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dua-gemini-suggestion-list button {
+  text-align: left;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy, #071e30);
+  background: #ffffff;
+  border: 1px solid rgba(7, 30, 48, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.dua-gemini-suggestion-list button:hover,
+.dua-gemini-suggestion-list button:focus-visible {
+  background: #f5f1e4;
+  border-color: var(--navy, #071e30);
+}
+
+.dua-gemini-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sticky-blue, #143e69);
+  background: rgba(20, 62, 105, 0.08);
+  border-radius: 4px;
+}
+
+.dua-gemini-error {
+  padding: 10px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  color: #991b1b;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dua-gemini-error-text {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dua-gemini-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: #ffffff;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dua-gemini-input-bar {
+  padding: 12px 14px;
+  background: #ffffff;
+  border-top: 1px solid rgba(7, 30, 48, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dua-gemini-input-bar input {
+  flex: 1;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid rgba(7, 30, 48, 0.22);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--navy, #071e30);
+  background: #fcfbf7;
+}
+
+.dua-gemini-input-bar input:focus {
+  outline: 2px solid var(--sticky-blue, #143e69);
+  outline-offset: 1px;
+}
+
+.dua-gemini-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background: var(--gold, #d8bb75);
+  color: var(--navy, #071e30);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dua-gemini-send-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .dua-floating-dock {
+    right: 12px;
+    left: 12px;
+    bottom: 14px;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .dua-whatsapp-launcher,
+  .dua-gemini-launcher {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+  }
+
+  .dua-gemini-window {
+    right: 12px;
+    left: 12px;
+    bottom: 68px;
+    width: auto;
+    height: min(520px, calc(100dvh - 88px));
+  }
+}
+
+/* DUA Brand Logo & Portrait Refinements */
+.brand img {
+  width: auto !important;
+  height: 50px !important;
+  max-width: 195px;
+  object-fit: contain;
+}
+
+footer .brand img {
+  height: 54px !important;
+}
+
+.fa-person-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
