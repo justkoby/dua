@@ -26,7 +26,7 @@ export default function Media() {
     <div ref={scrollRef}>
       <PageHeader
         title="News & Media"
-        subtitle="The official source for DUA statements, press releases, news, speeches and events."
+        subtitle="The official source for DUA statements, press releases, news, publications and events."
       />
 
       <section className="media-archive-section fade-in-section">

@@ -42,7 +42,7 @@ export default function Article() {
         <div className="container">
           <div className="article-header">
             <span className="news-category" style={{ backgroundColor: color }}>{item.category}</span>
-            <p className="article-dateline">{item.date} | Accra, Ghana</p>
+            <p className="article-dateline">{item.date} | {item.datelineLocation || 'Accra, Ghana'}</p>
             <h1 className="article-title">{item.title}</h1>
             <p className="article-country"><i className="bi bi-geo-alt me-1"></i>{item.country}</p>
           </div>
@@ -77,7 +77,16 @@ export default function Article() {
 
           {/* Actions */}
           <div className="article-actions">
-            <button type="button" className="btn btn-primary" onClick={() => window.print()}>
+            {item.documentUrl && (
+              <a
+                className="btn btn-primary"
+                href={encodeURI(item.documentUrl)}
+                download
+              >
+                <i className="bi bi-file-earmark-word me-1"></i> Download Document
+              </a>
+            )}
+            <button type="button" className={item.documentUrl ? 'btn btn-outline-light' : 'btn btn-primary'} onClick={() => window.print()}>
               <i className="bi bi-download me-1"></i> Download PDF
             </button>
             <a
