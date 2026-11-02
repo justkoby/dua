@@ -1,10 +1,12 @@
 export type NewsCategory =
+  | 'All Updates'
+  | 'News'
+  | 'Statements & Resolutions'
+  | 'Events'
+  | 'Publications'
   | 'Statements'
   | 'Press Releases'
-  | 'News'
-  | 'Publications'
   | 'Opinion'
-  | 'Events'
   | 'Media Coverage'
   | 'Programme Updates'
 
@@ -30,21 +32,125 @@ export interface NewsItem {
   spokesperson?: string
 }
 
-export const categoryColors: Record<NewsCategory, string> = {
-  Statements: '#4682B4',
+export const categoryColors: Record<string, string> = {
+  'Statements & Resolutions': '#0867A9',
+  Statements: '#0867A9',
+  News: '#27B6E8',
   'Press Releases': '#c0392b',
-  News: '#d4a017',
-  Publications: '#6f42c1',
+  Publications: '#11244D',
   Opinion: '#17a2b8',
-  Events: '#28a745',
+  Events: '#15803d',
   'Media Coverage': '#fd7e14',
   'Programme Updates': '#0E6655',
 }
 
 export const newsItems: NewsItem[] = [
   {
+    slug: 'dua-berlin-board-retreat-2026',
+    category: 'News',
+    country: 'Germany / Continental',
+    date: '24 February 2026',
+    datelineLocation: 'Berlin, Germany',
+    title: 'DUA Executive Board Concludes High-Level Strategic Retreat with CDU and KAS in Berlin',
+    summary:
+      'The DUA Board, led by Chairperson Louisa Atta-Agyemang and Vice Chairman Hon. McHenry Venaani, met with leadership from Germany’s Christian Democratic Union (CDU) and the Konrad-Adenauer-Stiftung (KAS) in Berlin to align on continental strategic priorities, party development, and democracy defense.',
+    image: '/images/events/dua-berlin-retreat-2026/dua-board-cdu-headquarters.webp',
+    featured: true,
+    spokesperson: 'Secretariat, Democracy Union of Africa',
+    body: [
+      {
+        type: 'p',
+        text: 'The Executive Board of the Democracy Union of Africa (DUA) has concluded an intensive three-day strategic retreat in Berlin, Germany, held at the headquarters of the Christian Democratic Union (CDU) and in close partnership with the Konrad-Adenauer-Stiftung (KAS).',
+      },
+      {
+        type: 'h2',
+        text: 'Deepening Global Centre-Right Alliances in Europe',
+      },
+      {
+        type: 'p',
+        text: 'Led by DUA Chairperson Md Louisa Atta-Agyemang and Vice Chairman Hon. McHenry Venaani (Leader of the Official Opposition in Namibia), the DUA delegation engaged in high-level discussions with CDU foreign affairs spokespersons, party executives, and European policy architects.',
+      },
+      {
+        type: 'p',
+        text: 'Deliberations focused on defending multiparty constitutional order across Africa, combating violent extremism and unconstitutional shifts in governance, and creating sustainable institutional capacity for centre-right parties across the African continent.',
+      },
+      {
+        type: 'h2',
+        text: 'Strategic Consultations with Konrad-Adenauer-Stiftung',
+      },
+      {
+        type: 'p',
+        text: 'The delegation met with leadership and regional directors at KAS Berlin headquarters to review joint continental initiatives, including the upcoming DUA Forum 2026, policy research on the African Continental Free Trade Area (AfCFTA), and expanded leadership academies for young legislators.',
+      },
+      {
+        type: 'p',
+        text: '“Our strategic alliance with CDU and KAS reflects a shared conviction that democratic resilience is not passive; it requires deliberate institution-building, electoral integrity, and cross-border solidarity,” stated Chairperson Louisa Atta-Agyemang.',
+      },
+      {
+        type: 'quote',
+        text: '“Democracy across Africa is facing unprecedented challenges. By uniting our voices with our global sister parties, DUA ensures that African centre-right democrats stand firm against autocracy and instability.” — Hon. McHenry Venaani, DUA Vice Chairman',
+      },
+      {
+        type: 'h2',
+        text: 'Outcomes and Next Steps Ahead of DUA Forum 2026',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Agreed roadmap for international observation missions and electoral integrity support in upcoming African general elections.',
+          'Expanded technical training programs for member party secretariats and campaign directors.',
+          'Consensus on the policy architecture and delegate participation for DUA Forum 2026.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'dua-womens-conference-windhoek-2026',
+    category: 'Events',
+    country: 'Namibia / Continental',
+    date: '28 October 2026',
+    datelineLocation: 'Windhoek, Namibia',
+    title: 'DUA Women’s Conference Concludes in Windhoek with Landmark Commitments on Leadership and Democratic Governance',
+    summary:
+      'Special Guest of Honour H.E. Lady Samira Bawumia, DUA Chairperson Louisa Atta-Agyemang, and continental centre-right women delegates conclude four days of strategic deliberations in Namibia under the theme "Women Working Together for Political Power, Progress and Prosperity".',
+    image: '/images/events/dua-womens-conference-2026/delegates-group-wide.png',
+    featured: true,
+    link: '/events/womens-conference-2026/',
+    spokesperson: 'DUA Women’s Directorate & Secretariat',
+    body: [
+      {
+        type: 'p',
+        text: 'The landmark DUA Women’s Conference 2026 convened in Windhoek, Namibia from October 25 to 28, 2026, uniting hundreds of women legislators, party executives, civil society leaders, and international partners across the continent.',
+      },
+      {
+        type: 'h2',
+        text: 'Special Guest of Honour H.E. Lady Samira R. Bawumia',
+      },
+      {
+        type: 'p',
+        text: 'Addressing delegates at the Oryx 2 Hall of the Windhoek Country Club, Special Guest of Honour H.E. Lady Samira R. Bawumia (Second Lady of Ghana) delivered a powerful keynote address calling on political parties to move beyond symbolic representation to structural power-sharing and substantive policy influence.',
+      },
+      {
+        type: 'h2',
+        text: 'High-Level Panels on Security and Economic Development',
+      },
+      {
+        type: 'p',
+        text: 'Delegates participated in decisive sessions including Panel 2: "Holding the Line: Centre-Right Women on Security, Sovereignty and the Fight Against Extremism" and Panel 3: "Women-Led Economic Development - From Commitment to Action". Key speakers included Ms Tina Mercep (IDU Vice Chairman), Dr Holger Dix (KAS Representative), Hon. McHenry Venaani (PDM Leader), and Hon. Zhaklina Peshevska.',
+      },
+      {
+        type: 'h2',
+        text: 'DUA Woman of Courage Award 2026',
+      },
+      {
+        type: 'p',
+        text: 'A signature moment of the conference was the conferment of the DUA Woman of Courage Award 2026 on H.E. Ellen Johnson Sirleaf, former President of Liberia and Nobel Peace Laureate, celebrating her historic legacy in advancing peace, constitutional governance, and female political leadership in Africa.',
+      },
+    ],
+  },
+  {
     slug: 'tundu-lissu',
-    category: 'Statements',
+    category: 'Statements & Resolutions',
     country: 'Tanzania',
     date: '12 August 2026',
     title: 'DUA Calls for the Immediate Release of Tundu Lissu',
@@ -85,7 +191,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: 'resolution-tanzania-tundu-lissu-2026',
-    category: 'Publications',
+    category: 'Statements & Resolutions',
     country: 'Tanzania',
     date: '28 October 2026',
     datelineLocation: 'Windhoek, Namibia',
@@ -119,7 +225,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: 'resolution-ivory-coast-2026',
-    category: 'Publications',
+    category: 'Statements & Resolutions',
     country: 'Ivory Coast',
     date: '25 October 2026',
     datelineLocation: 'Windhoek, Namibia',
@@ -151,7 +257,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: 'resolution-uganda-besigye-2026',
-    category: 'Publications',
+    category: 'Statements & Resolutions',
     country: 'Uganda',
     date: '25 October 2026',
     datelineLocation: 'Windhoek, Namibia',
@@ -355,25 +461,21 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: 'driving-democracy',
-    category: 'Opinion',
+    category: 'Publications',
     country: 'Continental',
     date: 'January 18, 2025',
     title: 'Democracy Union of Africa: Driving Democracy and Stability in Africa',
     summary:
-      'An overview of DUA\u2019s mission to strengthen democratic institutions, promote accountable governance and advance stability across the African continent.',
+      'An overview of DUA’s mission to strengthen democratic institutions, promote accountable governance and advance stability across the African continent.',
     image: '/images/dua-image-01.webp',
     link: '/blog/driving-democracy',
   },
 ]
 
-export const filterCategories: ('All' | NewsCategory)[] = [
-  'All',
-  'Statements',
-  'Press Releases',
+export const filterCategories: ('All Updates' | NewsCategory)[] = [
+  'All Updates',
   'News',
-  'Publications',
-  'Opinion',
+  'Statements & Resolutions',
   'Events',
-  'Media Coverage',
-  'Programme Updates',
+  'Publications',
 ]

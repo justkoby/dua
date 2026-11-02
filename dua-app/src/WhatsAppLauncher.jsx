@@ -12,8 +12,8 @@ export default function WhatsAppLauncher() {
       aria-label={`Chat with DUA Secretariat on WhatsApp (${duaContact.phone})`}
       title={`WhatsApp DUA Secretariat (${duaContact.phone})`}
     >
-      <MessageCircle size={19} aria-hidden="true" />
-      <span>WhatsApp</span>
+      <MessageCircle size={22} aria-hidden="true" />
+      <span className="sr-only">WhatsApp Secretariat</span>
     </a>
   );
 }

@@ -641,6 +641,35 @@ export const duaCommentaries = [
 
 export const duaEvents = [
   {
+    id: 'womens-conference-2026',
+    slug: 'womens-conference-2026',
+    status: 'published',
+    timing: 'past',
+    category: 'International Conference',
+    format: 'In-person Continental Conference',
+    title: 'DUA Women’s Conference 2026: Women Working Together for Political Power, Progress and Prosperity',
+    summary:
+      'Convened at the Windhoek Country Club, Namibia, bringing together centre-right women legislators, party executives, and global leaders featuring Special Guest of Honour H.E. Lady Samira Bawumia.',
+    dateLabel: '25 – 28 October 2026 · Windhoek, Namibia',
+    startDate: '2026-10-25',
+    endDate: '2026-10-28',
+    time: '4-Day Continental Assembly',
+    location: 'Windhoek, Namibia',
+    venue: 'Oryx 2 Hall, Windhoek Country Club and Resort, Windhoek, Namibia',
+    image: '/images/events/dua-womens-conference-2026/delegates-group-wide.png',
+    imageAlt: 'Delegates assembled at the DUA Women’s Conference 2026 in Windhoek, Namibia',
+    registrationNote:
+      'This landmark conference concluded on 28 October 2026. Explore the complete conference gallery, panel recordings, and adopted Windhoek resolutions.',
+    registrationEmailSubject: 'Enquiry — DUA Women’s Conference 2026 Proceedings',
+    highlights: [
+      'Keynote Address by Special Guest of Honour H.E. Lady Samira R. Bawumia (Second Lady of Ghana)',
+      'High-Level Panel 2: Holding the Line: Centre-Right Women on Security, Sovereignty and the Fight Against Extremism',
+      'High-Level Panel 3: Women-Led Economic Development — From Commitment to Action',
+      'Conferment of the DUA Woman of Courage Award 2026 on H.E. Ellen Johnson Sirleaf',
+      'Adoption of three official DUA country resolutions on Tanzania, Côte d’Ivoire, and Uganda',
+    ],
+  },
+  {
     id: 'dua-forum-2026',
     slug: 'dua-forum-2026',
     status: 'published',

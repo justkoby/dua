@@ -1,13 +1,11 @@
 import { newsItems } from './news-content.js';
 
 export const newsCategories = [
-  'All news',
-  'Statements',
-  'Publications',
-  'Press Releases',
+  'All Updates',
   'News',
-  'Opinion',
-  'Programme Updates',
+  'Statements & Resolutions',
+  'Events',
+  'Publications',
 ];
 
 const normalise = value =>
@@ -16,12 +14,49 @@ const normalise = value =>
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase();
 
-export function filterNews({ query = '', category = 'All news', items = newsItems } = {}) {
+function matchesCategory(item, category) {
+  if (!category || category === 'All Updates' || category === 'All news' || category === 'All') {
+    return true;
+  }
+  if (category === 'Statements & Resolutions') {
+    return (
+      item.category === 'Statements & Resolutions' ||
+      item.category === 'Statements' ||
+      Boolean(item.documentUrl) ||
+      item.slug?.includes('resolution') ||
+      item.slug?.includes('statement')
+    );
+  }
+  if (category === 'Publications') {
+    return (
+      item.category === 'Publications' ||
+      Boolean(item.documentUrl) ||
+      item.slug?.includes('resolution')
+    );
+  }
+  if (category === 'News') {
+    return (
+      item.category === 'News' ||
+      item.category === 'Press Releases' ||
+      item.category === 'Programme Updates' ||
+      item.category === 'Opinion'
+    );
+  }
+  if (category === 'Events') {
+    return (
+      item.category === 'Events' ||
+      Boolean(item.startDate || item.timing || item.slug?.includes('conference') || item.slug?.includes('forum'))
+    );
+  }
+  return item.category === category;
+}
+
+export function filterNews({ query = '', category = 'All Updates', items = newsItems } = {}) {
   const words = normalise(query).trim().split(/\s+/).filter(Boolean);
   return items
     .filter(
       item =>
-        (category === 'All news' || item.category === category) &&
+        matchesCategory(item, category) &&
         words.every(word => normalise(`${item.title} ${item.summary} ${item.location || item.dateline || ''}`).includes(word))
     )
     .sort((a, b) => String(b.publishedOn).localeCompare(String(a.publishedOn)));

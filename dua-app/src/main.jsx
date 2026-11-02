@@ -27,6 +27,121 @@ import WhatsAppLauncher from './WhatsAppLauncher.jsx';
 
 const Arrow = () => <ArrowUpRight size={21} strokeWidth={1.5} aria-hidden="true" />;
 
+function FeaturedWomensConference() {
+  return (
+    <section className="wc-feature-banner section-pad" id="womens-conference">
+      <div className="container">
+        <div className="wc-feature-grid">
+          <div className="wc-feature-photo">
+            <img
+              src="/images/events/dua-womens-conference-2026/delegates-group-wide.png"
+              alt="DUA Women’s Conference 2026 in Windhoek, Namibia"
+              loading="lazy"
+            />
+            <span className="wc-feature-badge">FEATURED CONVENING · WINDHOEK 2026</span>
+          </div>
+          <div className="wc-feature-copy">
+            <span className="eyebrow">DUA WOMEN’S CONFERENCE 2026</span>
+            <h2>
+              Women Working Together for Political Power, Progress and Prosperity.
+            </h2>
+            <p className="lead">
+              Hosted in Windhoek, Namibia, the landmark conference united women party leaders, legislators, and international dignitaries from over 25 African nations.
+            </p>
+            <p>
+              Special Guest of Honour H.E. Lady Samira Bawumia delivered a compelling keynote address on moving beyond representation to true institutional governance, alongside the conferment of the DUA Woman of Courage Award on Nobel Laureate H.E. Ellen Johnson Sirleaf.
+            </p>
+            <div className="wc-feature-chips">
+              <span>Oryx 2 Hall, Windhoek</span>
+              <span>25–28 Oct 2026</span>
+              <span>3 Adopted Resolutions</span>
+            </div>
+            <div className="wc-feature-actions">
+              <a className="button gold" href="/events/womens-conference-2026/">
+                View Conference Highlights <ArrowUpRight size={18} />
+              </a>
+              <a className="text-link" href="/events/womens-conference-2026/#gallery">
+                Explore Photo Gallery <ArrowUpRight size={17} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LatestNewsAndStatements() {
+  return (
+    <section className="homepage-news section-pad container" id="news-statements">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">NEWSROOM &amp; OFFICIAL STATEMENTS</p>
+          <h2>Latest News &amp; Statements.</h2>
+        </div>
+        <a className="text-link" href="/news/">
+          View all updates <ArrowUpRight size={18} />
+        </a>
+      </div>
+      <div className="homepage-news-grid">
+        {/* Card 1: Tanzania Lissu Resolution */}
+        <article className="hp-news-card">
+          <a href="/news/resolution-tanzania-tundu-lissu-2026/">
+            <div className="hp-news-image">
+              <img src="/images/free-tundu-lissu.jpeg" alt="Tundu Lissu Resolution" loading="lazy" />
+              <span className="hp-cat-badge">Statements &amp; Resolutions</span>
+            </div>
+            <div className="hp-news-body">
+              <time>28 October 2026 · Windhoek, Namibia</time>
+              <h3>Resolution on Tundu Lissu’s Treason Case &amp; Political Persecution in Tanzania</h3>
+              <p>Endorsed by DUA Vice Chairman Deogratias Munishi demanding the immediate release of opposition leader Tundu Lissu and over 65 detained CHADEMA members.</p>
+              <span className="text-link">
+                Read &amp; Download Resolution (.docx) <ArrowUpRight size={16} />
+              </span>
+            </div>
+          </a>
+        </article>
+
+        {/* Card 2: Côte d'Ivoire & Uganda Resolutions */}
+        <article className="hp-news-card">
+          <a href="/policy-briefs/">
+            <div className="hp-news-image">
+              <img src="/images/dua-conference-01.jpg" alt="Windhoek Resolutions" loading="lazy" />
+              <span className="hp-cat-badge">Statements &amp; Resolutions</span>
+            </div>
+            <div className="hp-news-body">
+              <time>25 October 2026 · Windhoek, Namibia</time>
+              <h3>Country Resolutions on Côte d’Ivoire &amp; Uganda (Dr Kizza Besigye)</h3>
+              <p>Official DUA Board resolutions calling for verifiable safety guarantees for PDCI-RDA’s Hon. Tidjane Thiam and the unconditional release of Dr Kizza Besigye.</p>
+              <span className="text-link">
+                Browse Windhoek Resolutions (.docx) <ArrowUpRight size={16} />
+              </span>
+            </div>
+          </a>
+        </article>
+
+        {/* Card 3: Berlin Board Retreat */}
+        <article className="hp-news-card">
+          <a href="/news/dua-berlin-board-retreat-2026/">
+            <div className="hp-news-image">
+              <img src="/images/events/dua-berlin-retreat-2026/dua-board-cdu-headquarters.webp" alt="DUA Board in Berlin" loading="lazy" />
+              <span className="hp-cat-badge">News</span>
+            </div>
+            <div className="hp-news-body">
+              <time>24 February 2026 · Berlin, Germany</time>
+              <h3>DUA Board Concludes Strategic Retreat with CDU and KAS in Berlin</h3>
+              <p>Chairperson Louisa Atta-Agyemang and Vice Chairman Hon. McHenry Venaani lead continental consultations on party capacity and democracy defense.</p>
+              <span className="text-link">
+                Read Full Report <ArrowUpRight size={16} />
+              </span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [navState, setNavState] = useState(() => ({
     pathname: window.location.pathname,
@@ -294,7 +409,17 @@ function App() {
               </section>
 
               <EvidenceStrip />
+
+              {/* 03 Featured Women's Conference 2026 */}
+              <FeaturedWomensConference />
+
+              {/* 04 Latest News & Statements */}
+              <LatestNewsAndStatements />
+
+              {/* 05 Continental Network & Member Parties */}
               <ActivitySection content={c.activity} />
+
+              {/* 06 Leadership & Strategic Priorities */}
               <PeopleSection content={c.people} />
 
               <section className="focus-section section-pad" id="focus">
@@ -330,111 +455,7 @@ function App() {
                 </div>
               </section>
 
-              <section className="engagement">
-                <div className="engagement-photo">
-                  <img src={c.engagement.image.src} alt={c.engagement.alt} loading="lazy" width="1280" height="960" />
-                </div>
-                <div className="engagement-copy">
-                  <p className="eyebrow">{c.engagement.eyebrow}</p>
-                  <h2>
-                    <Lines lines={c.engagement.heading} />
-                  </h2>
-                  <p>{c.engagement.text}</p>
-                  <a className="text-link" href={c.engagement.cta.href}>
-                    {c.engagement.cta.label} <Arrow />
-                  </a>
-                </div>
-              </section>
-
-              <section className="research section-pad container" id="research">
-                <div className="section-heading">
-                  <div>
-                    <p className="eyebrow">{c.research.eyebrow}</p>
-                    <h2>
-                      <Lines lines={c.research.heading} />
-                    </h2>
-                  </div>
-                  <a className="text-link" href={c.research.cta.href}>
-                    {c.research.cta.label} <Arrow />
-                  </a>
-                </div>
-                <div className="research-grid">
-                  <a className="research-feature" href="/policy-briefs/">
-                    <div className="research-art evidence-art" aria-hidden="true">
-                      <span className="art-label">DEMOCRACY UNION OF AFRICA / RESOLUTIONS</span>
-                      <strong>03</strong>
-                      <span className="evidence-art-label">WINDHOEK 2026 RESOLUTIONS · DOCX</span>
-                      <span className="art-note">TANZANIA (R6) · CÔTE D’IVOIRE · UGANDA</span>
-                    </div>
-                    <div className="research-description">
-                      <span className="eyebrow">OFFICIAL PUBLICATIONS</span>
-                      <h3>
-                        Read and download the
-                        <br />
-                        2026 Windhoek Resolutions.
-                      </h3>
-                      <span className="text-link">
-                        Open Publications &amp; Resolutions <Arrow />
-                      </span>
-                    </div>
-                  </a>
-                  <div className="research-list">
-                    {c.research.items.map((item, i) => (
-                      <a href={item.href} key={i}>
-                        <span className="eyebrow">{item.eyebrow}</span>
-                        <h3>
-                          <Lines lines={item.heading} />
-                        </h3>
-                        <p>{item.text}</p>
-                        <span className="text-link">
-                          {item.cta} <Arrow />
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              <section className="programmes section-pad" id="programmes">
-                <div className="container programmes-layout">
-                  <div className="programme-intro">
-                    <p className="eyebrow">{c.programmes.eyebrow}</p>
-                    <h2>
-                      <Lines lines={c.programmes.heading} />
-                      <br />
-                      <em>{c.programmes.emphasis}</em>
-                    </h2>
-                    <p>{c.programmes.text}</p>
-                    <a className="text-link" href={c.programmes.cta.href}>
-                      {c.programmes.cta.label} <Arrow />
-                    </a>
-                  </div>
-                  <div className="programme-accordion">
-                    {c.programmes.items.map((p, i) => (
-                      <div className={'programme-item ' + (active === i ? 'is-open' : '')} key={i}>
-                        <h3>
-                          <button
-                            aria-expanded={active === i}
-                            aria-controls={'programme-' + i}
-                            onClick={() => setActive(active === i ? -1 : i)}
-                          >
-                            <span className="programme-number">0{i + 1}</span>
-                            <span>{p.title}</span>
-                            {active === i ? <Minus size={20} /> : <Plus size={20} />}
-                          </button>
-                        </h3>
-                        <div id={'programme-' + i} hidden={active !== i} className="programme-body">
-                          <p>{p.description}</p>
-                          <a className="text-link" href={p.url}>
-                            Discover initiative <Arrow />
-                          </a>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
+              {/* 07 Events & Media Highlights */}
               <OpportunitiesSection content={c.opportunities} />
               <PartnerStrip content={c.partners} />
 

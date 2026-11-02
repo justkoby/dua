@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowRight, ArrowLeft, Download, Search } from 'lucide-react';
 import { Header, NewsImage, NewsCard } from './NewsEventsPages.jsx';
-import { filterNews, displayDate } from './news-events-model.js';
+import { filterNews, displayDate, newsCategories } from './news-events-model.js';
 import { activities, storyUrl } from '../activities.js';
 import { usePublished, useArticle } from './use-published.js';
 import './commentary-article.css';
@@ -13,7 +13,7 @@ function asNews(item) {
     slug: item.slug,
     title: item.title,
     summary: item.summary,
-    category: item.category || 'Statements',
+    category: item.category || 'Statements & Resolutions',
     location: item.dateline || item.location || 'ACCRA, GHANA',
     publishedOn: date,
     image: item.image,
@@ -26,15 +26,15 @@ function asNews(item) {
 export function NewsPage() {
   const published = usePublished('news');
   const rows = published.items.map(asNews).filter(item => item.publishedOn);
-  const categories = ['All news', ...new Set(rows.map(item => item.category))];
+  const categories = newsCategories;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState(() => {
     const param = new URLSearchParams(window.location.search).get('category');
-    return categories.includes(param) ? param : 'All news';
+    return categories.includes(param) ? param : 'All Updates';
   });
 
   const results = filterNews({ query, category, items: rows });
-  const featured = !query.trim() && category === 'All news' ? results[0] : null;
+  const featured = !query.trim() && category === 'All Updates' ? results[0] : null;
   const cards = results.filter(item => item.id !== featured?.id);
 
   return (

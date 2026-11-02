@@ -12,6 +12,7 @@ import {
 import { events as staticEvents } from './events-content.js';
 import { displayDate, eventState, listEvents } from './news-events-model.js';
 import { usePublishedEvents, useEvent } from './use-published.js';
+import WomensConferencePage from './WomensConferencePage.jsx';
 import './news-events.css';
 
 export function Header({ page, title, description }) {
@@ -239,6 +240,9 @@ export function EventsPage() {
 }
 
 export function EventDetailPage({ id }) {
+  if (id === 'womens-conference-2026' || id === 'dua-womens-conference-2026') {
+    return <WomensConferencePage />;
+  }
   const { item: foundItem } = useEvent(id);
   const item = foundItem || staticEvents[0];
   if (!item) return <EventsPage />;

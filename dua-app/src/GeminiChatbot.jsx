@@ -336,9 +336,10 @@ export default function GeminiChatbot() {
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
         aria-label={open ? 'Close DUA Gemini AI Assistant' : 'Open DUA Gemini AI Assistant'}
+        title={open ? 'Close DUA AI Assistant' : 'Ask DUA AI Assistant'}
       >
-        <Sparkles size={18} aria-hidden="true" />
-        <span>Ask DUA AI</span>
+        <Sparkles size={20} aria-hidden="true" />
+        <span className="sr-only">Ask DUA AI</span>
       </button>
     </div>
   );
