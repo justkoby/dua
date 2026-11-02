@@ -65,14 +65,16 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'Political differences should be resolved through open dialogue, constitutional processes and credible democratic institutions\u2014not through intimidation, prolonged detention or the use of criminal proceedings to silence political opponents.' },
       { type: 'p', text: 'The prosecution of opposition leaders weakens public trust in democratic institutions and risks narrowing the political space required for peaceful participation.' },
       { type: 'p', text: 'DUA therefore calls upon the Government and relevant authorities of the United Republic of Tanzania to:' },
-      { type: 'ul', items: [
-        'Release Hon. Tundu Lissu immediately and unconditionally.',
-        'Guarantee his safety, dignity and access to legal counsel.',
-        'Ensure that all judicial proceedings comply fully with constitutional and international fair-trial standards.',
-        'Protect the rights of opposition parties, civil society organisations, journalists and citizens to organise, assemble and express their political views peacefully.',
-        'End the use of state institutions and criminal processes to intimidate political opponents.',
-        'Initiate meaningful and inclusive dialogue on electoral, constitutional and democratic reforms.',
-      ] },
+      {
+        type: 'ul', items: [
+          'Release Hon. Tundu Lissu immediately and unconditionally.',
+          'Guarantee his safety, dignity and access to legal counsel.',
+          'Ensure that all judicial proceedings comply fully with constitutional and international fair-trial standards.',
+          'Protect the rights of opposition parties, civil society organisations, journalists and citizens to organise, assemble and express their political views peacefully.',
+          'End the use of state institutions and criminal processes to intimidate political opponents.',
+          'Initiate meaningful and inclusive dialogue on electoral, constitutional and democratic reforms.',
+        ]
+      },
       { type: 'h2', text: 'A call to Africa\u2019s democratic community' },
       { type: 'p', text: 'DUA further calls upon the African Union, regional institutions, international democratic organisations and partners of Tanzania to continue monitoring the case and to speak clearly in defence of political freedom, due process and democratic participation.' },
       { type: 'p', text: 'Silence in the face of shrinking political space risks normalising practices that threaten democracy across the continent.' },
@@ -103,14 +105,16 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'CONCERNED that Tundu Lissu, who survived a state-sponsored assassination attempt in September 2017, has missed his routine specialized medical check-ups for nearly two years due to his prolonged detention, raising grave concerns about his health and well-being;' },
       { type: 'p', text: 'ALARMED by the ongoing state-sponsored political persecution, abductions, arbitrary arrests, detentions and charging of CHADEMA leaders and members with high treason and terrorism cases which reflect a broader pattern of intimidations and systematic attempts to eliminate credible and strong opposition in Tanzania;' },
       { type: 'h2', text: 'The Democracy Union of Africa therefore:' },
-      { type: 'ul', items: [
-        'STRONGLY CONDEMNS the unjustified prolonged arbitrary detention of Tundu Lissu for almost two years, thereby severely restricting his political participation and preventing him from fully discharging his duties as the leader of CHADEMA, Tanzania\u2019s main political party.',
-        'REITERATES that the treason case against Tundu Lissu is politically motivated, lacks legal basis, and should never have been entertained by a functioning judicial system.',
-        'DEMANDS the immediate and unconditional release of Tundu Lissu from detention, as advocating for electoral reforms in Tanzania is a legitimate democratic activity that constitutes neither treason nor any other criminal offence.',
-        'DEMANDS the regime in Tanzania to ensure that Tundu Lissu\u2019s fundamental rights including, unhindered private access to his legal counsel, family, and party colleagues while in remand, are fully respected.',
-        'STRONGLY CONDEMNS the state-sponsored persecution of CHADEMA leaders and members as part of a broader effort to destabilise the party and ultimately eliminate it from Tanzania\u2019s political landscape.',
-        'CALLS UPON the regime in Tanzania to immediately drop all terrorism and treason charges against more than 65 CHADEMA leaders and members across Tanzania and unconditionally release them from prison detention.',
-      ] },
+      {
+        type: 'ul', items: [
+          'STRONGLY CONDEMNS the unjustified prolonged arbitrary detention of Tundu Lissu for almost two years, thereby severely restricting his political participation and preventing him from fully discharging his duties as the leader of CHADEMA, Tanzania\u2019s main political party.',
+          'REITERATES that the treason case against Tundu Lissu is politically motivated, lacks legal basis, and should never have been entertained by a functioning judicial system.',
+          'DEMANDS the immediate and unconditional release of Tundu Lissu from detention, as advocating for electoral reforms in Tanzania is a legitimate democratic activity that constitutes neither treason nor any other criminal offence.',
+          'DEMANDS the regime in Tanzania to ensure that Tundu Lissu\u2019s fundamental rights including, unhindered private access to his legal counsel, family, and party colleagues while in remand, are fully respected.',
+          'STRONGLY CONDEMNS the state-sponsored persecution of CHADEMA leaders and members as part of a broader effort to destabilise the party and ultimately eliminate it from Tanzania\u2019s political landscape.',
+          'CALLS UPON the regime in Tanzania to immediately drop all terrorism and treason charges against more than 65 CHADEMA leaders and members across Tanzania and unconditionally release them from prison detention.',
+        ]
+      },
     ],
   },
   {
@@ -133,14 +137,16 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'AWARE of the continued state-coordinated efforts to weaken the PDCI-RDA through numerous legal proceedings targeting its leaders, members, and the party as an institution;' },
       { type: 'p', text: 'AWARE of the fact that the existing Ivorian electoral framework is weak and contains loopholes that allow the authorities to manipulate the electoral process in favour of the incumbent, as demonstrated by the sham 2025 elections;' },
       { type: 'h2', text: 'The Democracy Union of Africa therefore:' },
-      { type: 'ul', items: [
-        'Calls upon the Ivorian authorities to provide specific and verifiable guarantees of Mr. Tidjane Thiam\u2019s safety, enabling him to return to the country, move freely, and discharge his duties as leader of the PDCI-RDA without hindrance.',
-        'Calls upon the Ivorian authorities to provide specific and verifiable guarantees that will enable other PDCI-RDA leaders and members who have been forced into exile to return safely and continue with their political life without fear.',
-        'Calls upon the Ivorian authorities to respect political pluralism and ensure that opposition parties can freely conduct their political activities without fear of persecution or imprisonment.',
-        'Demands the immediate and unconditional release of more than 750 PDCI-RDA leaders and members currently detained or imprisoned purely on political motivated cases.',
-        'Supports the PDCI-RDA\u2019s demands for electoral reforms that will guarantee free, fair, transparent, and inclusive elections in order to prevent a recurrence of 2025 electoral fraud in the future.',
-        'Calls upon the international community to pay closer attention to the deteriorating political situation in Ivory Coast and take appropriate action to deter further growth of authoritarianism in the country.',
-      ] },
+      {
+        type: 'ul', items: [
+          'Calls upon the Ivorian authorities to provide specific and verifiable guarantees of Mr. Tidjane Thiam\u2019s safety, enabling him to return to the country, move freely, and discharge his duties as leader of the PDCI-RDA without hindrance.',
+          'Calls upon the Ivorian authorities to provide specific and verifiable guarantees that will enable other PDCI-RDA leaders and members who have been forced into exile to return safely and continue with their political life without fear.',
+          'Calls upon the Ivorian authorities to respect political pluralism and ensure that opposition parties can freely conduct their political activities without fear of persecution or imprisonment.',
+          'Demands the immediate and unconditional release of more than 750 PDCI-RDA leaders and members currently detained or imprisoned purely on political motivated cases.',
+          'Supports the PDCI-RDA\u2019s demands for electoral reforms that will guarantee free, fair, transparent, and inclusive elections in order to prevent a recurrence of 2025 electoral fraud in the future.',
+          'Calls upon the international community to pay closer attention to the deteriorating political situation in Ivory Coast and take appropriate action to deter further growth of authoritarianism in the country.',
+        ]
+      },
     ],
   },
   {
@@ -163,13 +169,15 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'AWARE of the political situation in Uganda where cases of political persecution, abductions, enforced disappearances and torture targeting opposition leaders, members, and other government critics have intensified forcing many to flee the country;' },
       { type: 'p', text: 'COGNISANT of the increasing suppression and censorship of the media by the Ugandan authorities;' },
       { type: 'h2', text: 'The Democracy Union of Africa therefore:' },
-      { type: 'ul', items: [
-        'Calls upon the Ugandan authorities to drop the politically motivated terrorism charges against Dr Kizza Besigye and release him immediately and unconditionally.',
-        'Demand the Ugandan authorities to ensure that Dr Kizza Besigye has access to adequate and safe medical care in light of the continued deterioration of his health while in detention.',
-        'Strongly condemns the continued political persecution, abductions, enforced disappearances, and torture of Ugandan opposition leaders, members, and other government critics by the authorities.',
-        'Demands that the Ugandan authorities ensure that opposition leaders and members and other political actors exercise their political rights and participate freely in political life without any interference or hindrances.',
-        'Calls upon the international community to remain engaged, monitor the situation, and continue speaking out against the deterioration of democracy, fundamental freedoms, and the rule of law in Uganda.',
-      ] },
+      {
+        type: 'ul', items: [
+          'Calls upon the Ugandan authorities to drop the politically motivated terrorism charges against Dr Kizza Besigye and release him immediately and unconditionally.',
+          'Demand the Ugandan authorities to ensure that Dr Kizza Besigye has access to adequate and safe medical care in light of the continued deterioration of his health while in detention.',
+          'Strongly condemns the continued political persecution, abductions, enforced disappearances, and torture of Ugandan opposition leaders, members, and other government critics by the authorities.',
+          'Demands that the Ugandan authorities ensure that opposition leaders and members and other political actors exercise their political rights and participate freely in political life without any interference or hindrances.',
+          'Calls upon the international community to remain engaged, monitor the situation, and continue speaking out against the deterioration of democracy, fundamental freedoms, and the rule of law in Uganda.',
+        ]
+      },
     ],
   },
   {
@@ -186,13 +194,15 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'The Democracy Union of Africa (DUA) condemns the recent incidents of political violence in U\u00edge Province, Angola, and expresses solidarity with all affected parties, supporters and citizens.' },
       { type: 'p', text: 'As Angola prepares for the 2027 general elections, DUA urges the competent authorities to conduct an impartial and transparent investigation into the violence, hold those responsible to account, and take all necessary measures to protect the rights of political parties, their supporters and all citizens to campaign and participate freely and safely.' },
       { type: 'h2', text: 'DUA calls on the Angolan authorities to' },
-      { type: 'ul', items: [
-        'Promptly and impartially investigate the incidents of political violence in U\u00edge.',
-        'Bring the perpetrators to justice through fair and transparent legal processes.',
-        'Guarantee the safety of all political parties, candidates, supporters and civil society actors.',
-        'Ensure a level playing field for all political contestants ahead of the 2027 general elections.',
-        'Uphold the fundamental freedoms of assembly, association and expression.',
-      ] },
+      {
+        type: 'ul', items: [
+          'Promptly and impartially investigate the incidents of political violence in U\u00edge.',
+          'Bring the perpetrators to justice through fair and transparent legal processes.',
+          'Guarantee the safety of all political parties, candidates, supporters and civil society actors.',
+          'Ensure a level playing field for all political contestants ahead of the 2027 general elections.',
+          'Uphold the fundamental freedoms of assembly, association and expression.',
+        ]
+      },
       { type: 'p', text: 'DUA reaffirms that elections must be preceded by an environment of tolerance, in which political competition is conducted peacefully and differences are resolved through dialogue and democratic institutions rather than intimidation or violence.' },
       { type: 'p', text: 'DUA stands with the people of Angola in their pursuit of a peaceful, credible and inclusive democratic process.' },
     ],
@@ -225,15 +235,17 @@ export const newsItems: NewsItem[] = [
       { type: 'h2', text: 'A standard for democratic participation' },
       { type: 'p', text: 'DUA hopes that this election will not only produce a leader capable of winning broad support among party members, but also one who can inspire confidence across the Ghanaian electorate, strengthen collective energy and chart a path towards shared progress and national renewal ahead of the 2028 elections.' },
       { type: 'p', text: 'We encourage all stakeholders\u2014including aspirants, delegates, party executives, electoral officials, supporters and observers\u2014to uphold the principles of:' },
-      { type: 'ul', items: [
-        'Fairness and transparency.',
-        'Peaceful participation.',
-        'Respectful political communication.',
-        'Equal treatment of all aspirants.',
-        'Compliance with party rules and procedures.',
-        'Acceptance of credible results.',
-        'Unity and reconciliation following the election.',
-      ] },
+      {
+        type: 'ul', items: [
+          'Fairness and transparency.',
+          'Peaceful participation.',
+          'Respectful political communication.',
+          'Equal treatment of all aspirants.',
+          'Compliance with party rules and procedures.',
+          'Acceptance of credible results.',
+          'Unity and reconciliation following the election.',
+        ]
+      },
       { type: 'p', text: 'Such conduct strengthens democratic culture within the party and reinforces the positive role political parties play in Ghana\u2019s representative democracy.' },
       { type: 'h2', text: 'Best wishes to the NPP family' },
       { type: 'p', text: 'As the New Patriotic Party undertakes this important exercise, the Democracy Union of Africa wishes the party, all five aspirants, delegates, officials and supporters a peaceful, transparent and successful flagbearer election.' },
@@ -297,17 +309,19 @@ export const newsItems: NewsItem[] = [
       { type: 'p', text: 'Their rights to participate, organise, communicate and seek lawful redress must be fully protected.' },
       { type: 'h2', text: 'DUA calls for immediate action' },
       { type: 'p', text: 'The Democracy Union of Africa calls for:' },
-      { type: 'ul', items: [
-        'The immediate protection of all political actors, supporters and citizens, regardless of political affiliation.',
-        'The release or fair, transparent and timely legal processing of all individuals arbitrarily detained in connection with the elections.',
-        'Respect for fundamental rights, including freedom of expression, assembly, association, movement and access to information.',
-        'An end to intimidation, politically motivated arrests and violence against opposition members, journalists and civil-society actors.',
-        'Accountability for all acts of violence and abuse committed during and after the electoral process.',
-        'Independent and credible investigations into reported deaths, injuries, disappearances and violations of political rights.',
-        'The restoration and protection of unrestricted internet and communication services during future electoral processes.',
-        'Transparent examination of reported failures involving election technology and voter verification.',
-        'Genuine dialogue among political parties, state institutions and civil society to reduce tensions and support democratic reconciliation.',
-      ] },
+      {
+        type: 'ul', items: [
+          'The immediate protection of all political actors, supporters and citizens, regardless of political affiliation.',
+          'The release or fair, transparent and timely legal processing of all individuals arbitrarily detained in connection with the elections.',
+          'Respect for fundamental rights, including freedom of expression, assembly, association, movement and access to information.',
+          'An end to intimidation, politically motivated arrests and violence against opposition members, journalists and civil-society actors.',
+          'Accountability for all acts of violence and abuse committed during and after the electoral process.',
+          'Independent and credible investigations into reported deaths, injuries, disappearances and violations of political rights.',
+          'The restoration and protection of unrestricted internet and communication services during future electoral processes.',
+          'Transparent examination of reported failures involving election technology and voter verification.',
+          'Genuine dialogue among political parties, state institutions and civil society to reduce tensions and support democratic reconciliation.',
+        ]
+      },
       { type: 'h2', text: 'Democracy requires accountability' },
       { type: 'p', text: 'Elections alone do not constitute democracy.' },
       { type: 'p', text: 'A credible democratic system requires equal political participation, respect for fundamental freedoms, independent institutions, transparent electoral administration and genuine accountability.' },
